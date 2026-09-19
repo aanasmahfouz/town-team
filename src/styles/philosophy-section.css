@@ -1,0 +1,345 @@
+/**
+ * Philosophy Section Styling - Enhanced Aura Style
+ * Adapted from Aura-Journal Philosophy component
+ */
+
+.philosophy-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem !important;
+  padding: 3rem 2rem;
+}
+
+@media (min-width: 1024px) {
+  .philosophy-section {
+    padding: 4rem 2rem;
+    gap: 3rem !important;
+  }
+}
+
+/* Overline label with dash - Enhanced */
+.philosophy-overline {
+  font-size: 0.65rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5em !important;
+  font-weight: 700 !important;
+  display: flex !important;
+  align-items: center;
+  gap: 1.25rem;
+  color: var(--color-text-secondary) !important;
+  opacity: 0;
+  animation: fade-in-up 1s ease-out forwards;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.philosophy-overline::before {
+  content: '';
+  width: 4rem;
+  height: 1.5px;
+  background: var(--color-text-secondary);
+  flex-shrink: 0;
+  opacity: 0.4;
+}
+
+/* Main headline with emphasized word - Multi-line Layout */
+.philosophy-headline {
+  font-size: clamp(3rem, 10vw, 6rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.03em !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-display) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-transform: uppercase;
+}
+
+.philosophy-headline .emphasis {
+  display: block;
+  font-style: italic;
+  color: var(--color-accent) !important;
+  font-weight: 800;
+  margin-top: -0.2em;
+}
+
+.philosophy-headline .emphasis-secondary {
+  display: block;
+  font-style: italic;
+  color: var(--color-accent-secondary) !important;
+  font-weight: 800;
+  margin-top: -0.2em;
+}
+
+/* Secondary muted text block - Enhanced */
+.philosophy-secondary {
+  font-size: clamp(1.5rem, 4vw, 2.25rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.4 !important;
+  letter-spacing: -0.015em !important;
+  color: var(--color-text-secondary) !important;
+  opacity: 0.4 !important;
+  font-family: var(--font-display) !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 0 !important;
+  max-width: 100%;
+  padding: 0 !important;
+  text-transform: uppercase;
+  font-weight: 500 !important;
+}
+
+/* Remove divider - not in Aura style */
+.philosophy-divider {
+  display: none;
+}
+
+/* Animation keyframes */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .philosophy-section {
+    gap: 2rem !important;
+    padding: 2rem 1rem;
+  }
+  
+  .philosophy-overline {
+    font-size: 0.6rem;
+    letter-spacing: 0.4em;
+    gap: 1rem;
+  }
+  
+  .philosophy-overline::before {
+    width: 3rem;
+  }
+  
+  .philosophy-headline {
+    font-size: clamp(2.5rem, 12vw, 4rem) !important;
+  }
+  
+  .philosophy-secondary {
+    font-size: clamp(1.25rem, 5vw, 1.75rem) !important;
+  }
+}
+
+/* Hover states - subtle (Desktop only > 1024px with fine hover pointer) */
+@media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
+  .philosophy-headline {
+    transition: color 0.4s ease;
+  }
+
+  .philosophy-headline:hover .emphasis,
+  .philosophy-headline:hover .emphasis-secondary {
+    opacity: 0.85;
+    transition: opacity 0.4s ease;
+  }
+}
+
+/* ==========================================================================
+   Editorial Content Showcase (.content, .content1, .content2, .contentimg)
+   High-Fashion Magazine Layout with ZERO border-radius
+   ========================================================================== */
+
+.content {
+  width: 100%;
+  position: relative;
+  background: var(--color-background);
+  box-sizing: border-box;
+}
+
+.content1,
+.content2 {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Images: Zero border-radius strictly applied per user specification */
+.contentimg {
+  border-radius: 0 !important;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+  box-sizing: border-box;
+}
+
+.contentimg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 !important;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+@media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
+  .contentimg:hover img {
+    transform: scale(1.04);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Desktop Layout (> 1024px) - 100% Faithful to Original Creative Layout
+   -------------------------------------------------------------------------- */
+@media (min-width: 1025px) {
+  .content1 {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.5rem;
+    padding: 2.5rem 3rem 5rem;
+  }
+
+  .content1-images {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .content1-images .contentimg:nth-child(1) {
+    width: 20rem;
+    height: 30rem;
+  }
+
+  .content1-images .contentimg:nth-child(2) {
+    width: 25rem;
+    height: 40rem;
+  }
+
+  .content1 .philosophy-section {
+    width: 60vw;
+    flex-grow: 1;
+    padding: 3rem 2rem;
+  }
+
+  .content2 {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.5rem;
+    padding: 3rem 3rem 6rem;
+  }
+
+  .content2 .philosophy-section {
+    width: 60vw;
+    flex-grow: 1;
+    margin-top: 5rem;
+    padding: 3rem 2rem;
+  }
+
+  .content2-images {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 5rem;
+  }
+
+  .content2-images .contentimg:nth-child(1) {
+    width: 20rem;
+    height: 20rem;
+    margin-top: 5rem;
+  }
+
+  .content2-images .contentimg:nth-child(2) {
+    width: 20rem;
+    height: 30rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile & Tablet Layout (<= 1024px) - Asymmetric Staggered Editorial Duo
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .content1,
+  .content2 {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(2.5rem, 5vh, 4rem) clamp(1rem, 3.5vw, 2.5rem);
+    gap: clamp(1.75rem, 3.5vh, 2.75rem);
+  }
+
+  /* Typography block sits cleanly at the top */
+  .content1 .philosophy-section,
+  .content2 .philosophy-section {
+    width: 100% !important;
+    padding: 0 !important;
+    margin-top: 0 !important;
+    order: 1;
+  }
+
+  /* Editorial Images container positioned immediately beneath the typography */
+  .content-images-wrapper {
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(0.75rem, 2.5vw, 1.25rem);
+    order: 2;
+    box-sizing: border-box;
+  }
+
+  /* Section 1: The Movement Staggered Pair */
+  .content1-images .contentimg:nth-child(1) {
+    flex: 1;
+    aspect-ratio: 3/4;
+    border-radius: 0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .content1-images .contentimg:nth-child(2) {
+    flex: 1.08;
+    aspect-ratio: 4/5;
+    margin-top: clamp(1.5rem, 4vh, 2.5rem);
+    border-radius: 0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Section 2: The Expression Inverted Staggered Pair */
+  .content2-images .contentimg:nth-child(1) {
+    flex: 1;
+    aspect-ratio: 1/1;
+    margin-top: clamp(1.25rem, 3vh, 2rem);
+    border-radius: 0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .content2-images .contentimg:nth-child(2) {
+    flex: 1.08;
+    aspect-ratio: 3/4;
+    border-radius: 0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Ultra-Compact Mobile (< 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .content-images-wrapper {
+    gap: 0.65rem;
+  }
+
+  .content1-images .contentimg:nth-child(2) {
+    margin-top: 1.25rem;
+  }
+
+  .content2-images .contentimg:nth-child(1) {
+    margin-top: 1rem;
+  }
+}
+

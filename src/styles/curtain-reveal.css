@@ -1,0 +1,113 @@
+/**
+ * CURTAIN REVEAL TRANSITION
+ * Premium loading-to-hero transition with layered wipe effect
+ */
+
+/* Layer positioning and structure */
+.loader,
+.loader-curtain-gray {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0) translateY(0);
+  -webkit-transform: translateZ(0) translateY(0);
+}
+
+/* Enhanced shadow at the bottom edge of each curtain layer as it lifts */
+/* Creates depth illusion - like physical layers being peeled away */
+.loader {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.loader-curtain-gray {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* Additional edge shadow that animates during the wipe */
+.loader::before,
+.loader-curtain-gray::before {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Hero section initial state - slightly scaled down and blurred for "arrival" effect */
+#aura-hero-section {
+  opacity: 0;
+  transform: scale(0.98) translateZ(0);
+  filter: blur(8px);
+  will-change: transform, opacity, filter;
+  transition: none;
+  pointer-events: none;
+}
+
+#aura-hero-section.visible {
+  opacity: 1;
+  transform: scale(1) translateZ(0);
+  filter: blur(0);
+  pointer-events: all;
+}
+
+/* Navigation initial state */
+#aura-navigation {
+  opacity: 0;
+  will-change: opacity;
+  pointer-events: none;
+}
+
+#aura-navigation.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Prevent interaction during transition */
+.loader,
+.loader-curtain-gray {
+  pointer-events: all;
+  user-select: none;
+}
+
+.loader[data-transitioning="true"],
+.loader-curtain-gray[data-transitioning="true"] {
+  pointer-events: none;
+}
+
+/* Mobile optimizations - reduce blur and shadow intensity */
+@media (max-width: 768px) {
+  .loader {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  }
+  
+  .loader-curtain-gray {
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+  }
+  
+  #aura-hero-section {
+    filter: blur(4px);
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .loader,
+  .loader-curtain-gray,
+  #aura-hero-section,
+  #aura-navigation {
+    transition: opacity 0.3s ease !important;
+    transform: none !important;
+    filter: none !important;
+    box-shadow: none !important;
+  }
+  
+  .loader::before,
+  .loader-curtain-gray::before {
+    display: none;
+  }
+}
+

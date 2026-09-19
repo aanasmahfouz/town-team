@@ -1,0 +1,332 @@
+/**
+ * Town Team - Footer Stylesheet (Modular & Fully Responsive)
+ * Provides seamless, luxury responsive layouts across Desktop, Tablet, and Mobile (down to 300px)
+ */
+
+/* ==========================================================================
+   1. Base Footer Container
+   ========================================================================== */
+.footer {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1rem, 4vw, 2.5rem) 1.5rem;
+  overflow-x: clip;
+  overflow-y: visible;
+  position: relative;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.footer::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.footer footer {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.footer .main-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   2. Header & Top Divider Line
+   ========================================================================== */
+.footer .first {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.footer #logo {
+  font-family: "priestacy", sans-serif;
+  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+  font-weight: 400;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1;
+}
+
+.footer .line {
+  width: 100%;
+  height: clamp(32px, 5vw, 60px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.footer .line svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ==========================================================================
+   3. Main Navigation Links (Upper Footer)
+   ========================================================================== */
+.footer .upper-footer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 5vw, 6rem);
+  margin-bottom: clamp(2rem, 4vw, 4rem);
+}
+
+/* On Desktop screens (> 1024px) */
+@media (min-width: 1025px) {
+  .footer .upper-footer {
+    display: flex;
+    justify-content: flex-start;
+    gap: clamp(4rem, 8vw, 9rem);
+  }
+}
+
+.footer .left-up,
+.footer .right-up {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.6rem, 1.5vw, 1rem);
+}
+
+.footer .footer-link {
+  display: inline-block;
+  width: fit-content;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: clamp(0.92rem, 2.2vw, 1.45rem);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  padding: 0.15rem 0;
+  transition: color 0.25s ease, transform 0.25s ease;
+  word-break: break-word;
+}
+
+/* Desktop hover interactions (> 1024px with mouse) */
+@media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
+  .footer .footer-link:hover {
+    color: var(--color-text-primary);
+    transform: translateX(6px);
+  }
+}
+
+/* Disable hover shifts on <= 1024px */
+@media (max-width: 1024px) {
+  .footer .footer-link,
+  .footer .footer-link:hover {
+    transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   4. Social Links & Stay Connected (Mid Footer)
+   ========================================================================== */
+.footer .mid-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.footer .first-child {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  flex-wrap: wrap;
+}
+
+.footer .first-child .footer-link {
+  font-size: clamp(0.95rem, 2vw, 1.35rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.footer .second-child {
+  text-align: right;
+}
+
+.footer .footer-follow {
+  font-family: "priestacy", sans-serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  color: var(--color-text-secondary);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin: 0;
+  line-height: 1;
+}
+
+/* Default state: mobile Stay Connected is hidden */
+.footer .footer-follow-mobile {
+  display: none !important;
+}
+
+.footer .footer-follow-desktop {
+  display: block;
+}
+
+/* ==========================================================================
+   5. Lower Divider Line (Default for > 642px)
+   ========================================================================== */
+.footer .lower-footer {
+  width: 100%;
+  margin-bottom: clamp(1rem, 2.5vw, 2rem);
+}
+
+.footer .lower-footer .line {
+  width: 100%;
+  height: clamp(28px, 4vw, 50px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.footer .lower-footer .line svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ==========================================================================
+   Mobile layout (<= 642px): Line on left + Stay Connected on right
+   ========================================================================== */
+@media (max-width: 642px) {
+  .footer .mid-footer {
+    width: 100%;
+    margin-bottom: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .footer .first-child {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem 1.75rem;
+    flex-wrap: wrap;
+  }
+
+  /* Hide desktop Stay Connected in mid-footer */
+  .footer .footer-follow-desktop {
+    display: none !important;
+  }
+
+  /* Show line + Stay Connected together in lower-footer */
+  .footer .lower-footer {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.75rem, 2vw, 1.25rem);
+    width: 100%;
+    margin-bottom: clamp(1rem, 2.5vw, 2rem);
+  }
+
+  .footer .lower-footer .line {
+    flex: 1;
+    min-width: 0;
+    height: clamp(26px, 4vw, 40px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .footer .lower-footer .footer-follow-mobile {
+    display: block !important;
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-family: "priestacy", sans-serif;
+    font-size: clamp(1.4rem, 4.8vw, 2rem);
+    color: var(--color-text-secondary);
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+  }
+}
+
+/* ==========================================================================
+   6. Giant Brand Signature (End Text)
+   ========================================================================== */
+.footer .end {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(1rem, 3vw, 2rem) 0;
+  margin-bottom: clamp(1rem, 2vw, 2rem);
+  overflow: visible;
+}
+
+.footer .end h5 {
+  font-family: "piximisa", sans-serif;
+  font-size: clamp(2.6rem, 13.5vw, 11rem);
+  font-weight: 600;
+  letter-spacing: clamp(0.04em, 1.2vw, 0.08em);
+  color: var(--color-text-primary);
+  text-align: center;
+  white-space: nowrap;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+/* ==========================================================================
+   7. Developer Credit & Copyright
+   ========================================================================== */
+.footer .developer-credit {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(1.25rem, 3vw, 2rem) 0 0.5rem;
+  border-top: 1px solid var(--color-border);
+  box-sizing: border-box;
+}
+
+.footer .developer-credit p {
+  font-family: var(--font-body);
+  font-size: clamp(0.75rem, 2.2vw, 0.875rem);
+  color: var(--color-text-primary);
+  opacity: 0.65;
+  text-align: center;
+  letter-spacing: 0.02em;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   8. Ultra-Compact Mobile (< 360px) Adjustments
+   ========================================================================== */
+@media (max-width: 360px) {
+  .footer {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .footer .upper-footer {
+    gap: 1.25rem 0.6rem;
+  }
+
+  .footer .footer-link {
+    font-size: 0.88rem;
+  }
+
+  .footer .first-child {
+    gap: 0.85rem 1.25rem;
+  }
+}
