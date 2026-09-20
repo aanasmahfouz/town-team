@@ -1,6 +1,6 @@
 /**
- * Aura Hero Section - Mouse Parallax Effects
- * Converted from React/Next.js to vanilla JavaScript
+ * Town Team Hero Section - Interactive Mouse Parallax Effects
+ * Modern creative interactive experience for desktop viewports
  */
 
 (function() {
@@ -12,16 +12,15 @@
   let targetY = 0;
 
   /**
-   * Initialize the hero section with mouse parallax (no particles)
+   * Initialize the hero section with mouse parallax
    */
   function initParticleSystem() {
-    const container = document.getElementById('aura-hero-canvas-container');
+    const container = document.getElementById('town-hero-canvas-container') || document.getElementById('aura-hero-canvas-container');
     if (!container) {
-      console.warn('Aura hero canvas container not found');
       return;
     }
 
-    // Hide the canvas - we don't want particles
+    // Canvas container is hidden in favor of pure high-performance CSS and GSAP
     container.style.display = 'none';
 
     // Setup event listeners for mouse parallax only
@@ -48,10 +47,10 @@
    */
   function updateTextParallax(x, y) {
     if (window.innerWidth <= 1024) return;
-    const subtitle = document.querySelector('.aura-hero-subtitle');
-    const titleMain = document.querySelector('.aura-hero-title-main');
-    const titleOverlay = document.querySelector('.aura-hero-title-overlay');
-    const description = document.querySelector('.aura-hero-description-wrapper');
+    const subtitle = document.querySelector('.town-hero-subtitle, .aura-hero-subtitle');
+    const titleMain = document.querySelector('.town-hero-title-main, .aura-hero-title-main');
+    const titleOverlay = document.querySelector('.town-hero-title-overlay, .aura-hero-title-overlay');
+    const description = document.querySelector('.town-hero-description-wrapper, .aura-hero-description-wrapper');
 
     if (subtitle) {
       subtitle.style.transform = `translate(${x * -15}px, ${y * -15}px)`;
@@ -75,7 +74,12 @@
    */
   function handleResize() {
     if (window.innerWidth <= 1024) {
-      const elements = document.querySelectorAll('.aura-hero-subtitle, .aura-hero-title-main, .aura-hero-title-overlay, .aura-hero-description-wrapper');
+      const elements = document.querySelectorAll(
+        '.town-hero-subtitle, .aura-hero-subtitle, ' +
+        '.town-hero-title-main, .aura-hero-title-main, ' +
+        '.town-hero-title-overlay, .aura-hero-title-overlay, ' +
+        '.town-hero-description-wrapper, .aura-hero-description-wrapper'
+      );
       elements.forEach(el => { if (el) el.style.transform = ''; });
     }
   }
@@ -107,9 +111,9 @@
    */
   function init() {
     // Check if we should initialize (hero section exists)
-    const heroSection = document.getElementById('aura-hero-section');
+    const heroSection = document.getElementById('town-hero-section') || document.getElementById('aura-hero-section');
     if (!heroSection) {
-      console.warn('Aura hero section not found - skipping initialization');
+      console.warn('Hero section not found - skipping initialization');
       return;
     }
 
@@ -117,7 +121,7 @@
     initParticleSystem();
 
     // Store cleanup function globally for potential manual cleanup
-    window.auraHeroCleanup = cleanup;
+    window.townHeroCleanup = cleanup;
   }
 
   // Initialize when DOM is loaded

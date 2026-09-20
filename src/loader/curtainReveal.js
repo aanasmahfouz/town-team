@@ -23,8 +23,8 @@ export function initRealAssetLoader(onLoaderFinished) {
   const progress = document.querySelector('.progress');
   const loaderBlack = document.querySelector('.loader');
   const loaderGray = document.querySelector('.loader-curtain-gray');
-  const heroSection = document.querySelector('#aura-hero-section');
-  const navigation = document.querySelector('#aura-navigation');
+  const heroSection = document.querySelector('#town-hero-section');
+  const navigation = document.querySelector('#town-navigation');
 
   if (!progress || !loaderBlack || !loaderGray) {
     if (onLoaderFinished) onLoaderFinished();

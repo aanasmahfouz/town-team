@@ -6,12 +6,12 @@
   'use strict';
 
   function initMenuHoverImages() {
-    const menuItems = document.querySelectorAll('.aura-menu-item');
+    const menuItems = document.querySelectorAll('.town-menu-item, .aura-menu-item');
     const bgImages = {
-      home: document.querySelector('.aura-menu-bg-image.home-bg'),
-      about: document.querySelector('.aura-menu-bg-image.about-bg'),
-      collections: document.querySelector('.aura-menu-bg-image.collections-bg'),
-      shopping: document.querySelector('.aura-menu-bg-image.shopping-bg')
+      home: document.querySelector('.town-menu-bg-image.home-bg, .aura-menu-bg-image.home-bg'),
+      about: document.querySelector('.town-menu-bg-image.about-bg, .aura-menu-bg-image.about-bg'),
+      collections: document.querySelector('.town-menu-bg-image.collections-bg, .aura-menu-bg-image.collections-bg'),
+      shopping: document.querySelector('.town-menu-bg-image.shopping-bg, .aura-menu-bg-image.shopping-bg')
     };
 
     if (menuItems.length === 0) return;
@@ -36,7 +36,7 @@
     });
 
     // Reset to home image when leaving menu items
-    const menuOverlay = document.getElementById('aura-menu-overlay');
+    const menuOverlay = document.getElementById('town-menu-overlay') || document.getElementById('aura-menu-overlay');
     if (menuOverlay) {
       menuOverlay.addEventListener('mouseleave', function() {
         Object.values(bgImages).forEach(img => {

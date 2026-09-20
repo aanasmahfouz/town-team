@@ -25,13 +25,13 @@
    */
   function init() {
     // Cache DOM elements
-    navElement = document.getElementById('aura-navigation');
-    menuOverlay = document.getElementById('aura-menu-overlay');
-    menuBtn = document.getElementById('aura-menu-btn');
-    menuBtnIcon = document.getElementById('aura-menu-icon');
+    navElement = document.getElementById('town-navigation') || document.getElementById('aura-navigation');
+    menuOverlay = document.getElementById('town-menu-overlay') || document.getElementById('aura-menu-overlay');
+    menuBtn = document.getElementById('town-menu-btn') || document.getElementById('aura-menu-btn');
+    menuBtnIcon = document.getElementById('town-menu-icon') || document.getElementById('aura-menu-icon');
 
     if (!navElement || !menuOverlay || !menuBtn) {
-      console.warn('Aura navigation elements not found - skipping initialization');
+      console.warn('Navigation elements not found - skipping initialization');
       return;
     }
 
@@ -59,7 +59,7 @@
     menuBtn.addEventListener('click', toggleMenu);
 
     // Menu item clicks - close menu when clicked
-    const menuItems = document.querySelectorAll('.aura-menu-item');
+    const menuItems = document.querySelectorAll('.town-menu-item, .aura-menu-item');
     menuItems.forEach(item => {
       item.addEventListener('click', closeMenu);
     });
@@ -154,7 +154,7 @@
     menuOverlay.classList.add('open');
 
     // Prevent body scroll
-    document.body.classList.add('aura-menu-open');
+    document.body.classList.add('town-menu-open');
     document.body.style.overflow = 'hidden';
 
     // Update menu button icon
@@ -175,7 +175,7 @@
     menuOverlay.classList.remove('open');
 
     // Re-enable body scroll
-    document.body.classList.remove('aura-menu-open');
+    document.body.classList.remove('town-menu-open');
     document.body.style.overflow = 'unset';
 
     // Restore scrolled state if needed
@@ -215,7 +215,7 @@
    * Reset menu item animations when opening
    */
   function resetMenuAnimations() {
-    const menuItems = document.querySelectorAll('.aura-menu-item');
+    const menuItems = document.querySelectorAll('.town-menu-item, .aura-menu-item');
     
     // Force reflow to restart animations
     menuItems.forEach(item => {
@@ -241,7 +241,7 @@
    */
   function setupSmoothScroll() {
     // Handle all anchor links in navigation
-    const anchorLinks = document.querySelectorAll('.aura-nav-link[href^="#"], .aura-menu-item[href^="#"]');
+    const anchorLinks = document.querySelectorAll('.town-nav-link[href^="#"], .town-menu-item[href^="#"], .aura-nav-link[href^="#"], .aura-menu-item[href^="#"]');
     
     anchorLinks.forEach(link => {
       link.addEventListener('click', function(e) {
@@ -286,7 +286,7 @@
     }
 
     // Restore body scroll
-    document.body.classList.remove('aura-menu-open');
+    document.body.classList.remove('town-menu-open');
     document.body.style.overflow = 'unset';
   }
 
@@ -298,7 +298,7 @@
     setupSmoothScroll();
 
     // Store cleanup function globally for potential manual cleanup
-    window.auraNavigationCleanup = cleanup;
+    window.townNavigationCleanup = cleanup;
   }
 
   // Initialize when DOM is loaded

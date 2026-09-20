@@ -6,8 +6,8 @@
 // Modular Stylesheets
 import './styles/style.css';
 import './styles/curtain-reveal.css';
-import './styles/aura-hero.css';
-import './styles/aura-navigation-redesign.css';
+import './styles/hero-section.css';
+import './styles/navigation.css';
 import './styles/philosophy-section.css';
 import './styles/shopping-section.css';
 import './styles/footer.css';
@@ -23,9 +23,9 @@ import { initSplitTextAnimations } from './effects/splitText.js';
 import { initFooterTextPressure } from './effects/textPressure.js';
 
 // Interactive Components
-import './components/aura-navigation.js';
-import './components/aura-hero.js';
-import './components/menu-hover-images.js';
+import './components/navigation.js';
+import './components/heroSection.js';
+import './components/menuHoverImages.js';
 
 // 1. Initialize Smooth Scroll System (LocomotiveScroll & GSAP ScrollTrigger)
 initSmoothScroll();

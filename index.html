@@ -33,8 +33,8 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="/src/styles/style.css">
   <link rel="stylesheet" href="/src/styles/curtain-reveal.css">
-  <link rel="stylesheet" href="/src/styles/aura-hero.css">
-  <link rel="stylesheet" href="/src/styles/aura-navigation-redesign.css">
+  <link rel="stylesheet" href="/src/styles/hero-section.css">
+  <link rel="stylesheet" href="/src/styles/navigation.css">
   <link rel="stylesheet" href="/src/styles/philosophy-section.css">
   <link rel="stylesheet" href="/src/styles/shopping-section.css">
   <link rel="stylesheet" href="/src/styles/footer.css">
@@ -61,32 +61,32 @@
     </div>
 
     <!-- ====================================
-         AURA NAVIGATION BAR
+         TOWN TEAM NAVIGATION BAR
          ==================================== -->
-    <nav id="aura-navigation" class="aura-font-body aura-antialiased">
-      <a href="#aura-hero-section" class="aura-nav-logo">
-        <span class="aura-nav-logo-text">
+    <nav id="town-navigation" class="town-font-body town-antialiased">
+      <a href="#town-hero-section" class="town-nav-logo">
+        <span class="town-nav-logo-text">
           <img class="w-10" src="/assets/town-team-logo.png" alt="Town Team Logo">
         </span>
       </a>
 
-      <div class="aura-nav-center">
-        <div class="aura-nav-links">
-          <a href="#about" class="aura-nav-link">About</a>
-          <a href="#collections" class="aura-nav-link">Collections</a>
-          <a href="#shopping" class="aura-nav-link">Shopping</a>
+      <div class="town-nav-center">
+        <div class="town-nav-links">
+          <a href="#about" class="town-nav-link">About</a>
+          <a href="#collections" class="town-nav-link">Collections</a>
+          <a href="#shopping" class="town-nav-link">Shopping</a>
         </div>
       </div>
 
-      <div class="aura-nav-actions">
-        <a href="#collections" class="aura-nav-cta-btn">
+      <div class="town-nav-actions">
+        <a href="#collections" class="town-nav-cta-btn">
           <span>Shop Now</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <button id="aura-menu-btn" class="aura-nav-menu-btn" aria-label="Toggle menu">
-          <span id="aura-menu-icon">
+        <button id="town-menu-btn" class="town-nav-menu-btn" aria-label="Toggle menu">
+          <span id="town-menu-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -98,69 +98,69 @@
     </nav>
 
     <!-- ====================================
-         AURA FULL-SCREEN MENU OVERLAY
+         TOWN TEAM FULL-SCREEN MENU OVERLAY
          ==================================== -->
-    <div id="aura-menu-overlay" class="aura-font-body aura-antialiased">
+    <div id="town-menu-overlay" class="town-font-body town-antialiased">
       <!-- Background Image Container -->
-      <div class="aura-menu-bg-image-container">
-        <div class="aura-menu-bg-image home-bg active" style="background-image: url('/assets/live-with-passion-campaign.webp');"></div>
-        <div class="aura-menu-bg-image about-bg" style="background-image: url('/assets/model.webp');"></div>
-        <div class="aura-menu-bg-image collections-bg" style="background-image: url('/assets/collection.webp');"></div>
-        <div class="aura-menu-bg-image shopping-bg" style="background-image: url('/assets/seaside-time-campaign.webp');"></div>
+      <div class="town-menu-bg-image-container">
+        <div class="town-menu-bg-image home-bg active" style="background-image: url('/assets/live-with-passion-campaign.webp');"></div>
+        <div class="town-menu-bg-image about-bg" style="background-image: url('/assets/model.webp');"></div>
+        <div class="town-menu-bg-image collections-bg" style="background-image: url('/assets/collection.webp');"></div>
+        <div class="town-menu-bg-image shopping-bg" style="background-image: url('/assets/seaside-time-campaign.webp');"></div>
       </div>
 
       <!-- Menu Items -->
-      <div class="aura-menu-items">
-        <a href="#home" class="aura-menu-item cursoreffect" data-menu="home">Home</a>
-        <a href="#about" class="aura-menu-item cursoreffect" data-menu="about">About</a>
-        <a href="#collections" class="aura-menu-item cursoreffect" data-menu="collections">Collections</a>
-        <a href="#shopping" class="aura-menu-item cursoreffect" data-menu="shopping">Shopping</a>
+      <div class="town-menu-items">
+        <a href="#home" class="town-menu-item cursoreffect" data-menu="home">Home</a>
+        <a href="#about" class="town-menu-item cursoreffect" data-menu="about">About</a>
+        <a href="#collections" class="town-menu-item cursoreffect" data-menu="collections">Collections</a>
+        <a href="#shopping" class="town-menu-item cursoreffect" data-menu="shopping">Shopping</a>
       </div>
 
       <!-- Menu Footer -->
-      <div class="aura-menu-footer">
-        <div class="aura-menu-social">
-          <a href="https://www.instagram.com/townteam/" target="_blank" rel="noopener noreferrer" class="aura-menu-social-link cursoreffect" aria-label="Instagram">Instagram</a>
-          <a href="https://www.facebook.com/townteam" target="_blank" rel="noopener noreferrer" class="aura-menu-social-link cursoreffect" aria-label="Facebook">Facebook</a>
-          <a href="https://www.tiktok.com/@townteam98" target="_blank" rel="noopener noreferrer" class="aura-menu-social-link cursoreffect" aria-label="TikTok">TikTok</a>
+      <div class="town-menu-footer">
+        <div class="town-menu-social">
+          <a href="https://www.instagram.com/townteam/" target="_blank" rel="noopener noreferrer" class="town-menu-social-link cursoreffect" aria-label="Instagram">Instagram</a>
+          <a href="https://www.facebook.com/townteam" target="_blank" rel="noopener noreferrer" class="town-menu-social-link cursoreffect" aria-label="Facebook">Facebook</a>
+          <a href="https://www.tiktok.com/@townteam98" target="_blank" rel="noopener noreferrer" class="town-menu-social-link cursoreffect" aria-label="TikTok">TikTok</a>
         </div>
-        <div class="aura-menu-copyright">
+        <div class="town-menu-copyright">
           &copy; <span class="menu-year">2026</span> Anas Mahfouz. All rights reserved.
         </div>
       </div>
     </div>
 
     <!-- ====================================
-         AURA HERO SECTION
+         TOWN TEAM HERO SECTION
          ==================================== -->
-    <section id="aura-hero-section" class="aura-font-body aura-antialiased">
+    <section id="town-hero-section" class="town-font-body town-antialiased">
       <!-- Background Decorative Glow -->
-      <div class="aura-hero-bg-glow">
-        <div class="aura-hero-bg-glow-inner"></div>
+      <div class="town-hero-bg-glow">
+        <div class="town-hero-bg-glow-inner"></div>
       </div>
 
       <!-- Hero Canvas Container (hidden) -->
-      <div id="aura-hero-canvas-container" style="display: none;">
-        <canvas id="aura-hero-canvas"></canvas>
+      <div id="town-hero-canvas-container" style="display: none;">
+        <canvas id="town-hero-canvas"></canvas>
       </div>
 
       <!-- Hero Content -->
-      <div class="aura-hero-content">
-        <div class="aura-hero-text-wrapper">
+      <div class="town-hero-content">
+        <div class="town-hero-text-wrapper">
           <!-- Subtitle -->
-          <div class="aura-hero-subtitle">
+          <div class="town-hero-subtitle">
             Modern Casualwear Since 1998
           </div>
 
           <!-- Main Title Container -->
-          <div class="aura-hero-title-container">
+          <div class="town-hero-title-container">
             <!-- Layer 1: YOUR STYLE (Background) -->
-            <h1 class="aura-hero-title-main">
+            <h1 class="town-hero-title-main">
               YOUR STYLE
             </h1>
 
             <!-- Layer 2: TOWN TEAM (Foreground - Main Focus) -->
-            <h1 class="aura-hero-title-overlay">
+            <h1 class="town-hero-title-overlay">
               TOWN TEAM
             </h1>
           </div>
@@ -168,12 +168,12 @@
       </div>
 
       <!-- Scroll Indicator -->
-      <div class="aura-hero-scroll-indicator">
-        <div class="aura-hero-scroll-content">
-          <span class="aura-hero-scroll-text">Explore Collection</span>
-          <div class="aura-hero-scroll-line-container">
-            <div class="aura-hero-scroll-line-bg"></div>
-            <div class="aura-hero-scroll-line-animated"></div>
+      <div class="town-hero-scroll-indicator">
+        <div class="town-hero-scroll-content">
+          <span class="town-hero-scroll-text">Explore Collection</span>
+          <div class="town-hero-scroll-line-container">
+            <div class="town-hero-scroll-line-bg"></div>
+            <div class="town-hero-scroll-line-animated"></div>
           </div>
         </div>
       </div>

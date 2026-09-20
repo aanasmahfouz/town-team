@@ -101,30 +101,32 @@ town-team/
 │   └── videos/                    # Brand campaign cinematic loops
 ├── src/
 │   ├── components/
-│   │   ├── auraHero.js            # Kinetic hero typography & mouse tracker
-│   │   ├── auraNavigation.js      # Fullscreen editorial overlay navigation
-│   │   ├── curtainReveal.js       # Staged dual-curtain introduction sequence
+│   │   ├── heroSection.js         # Kinetic hero typography & mouse tracker
+│   │   ├── navigation.js          # Fullscreen editorial overlay navigation
 │   │   ├── lookbookCanvas.js      # 60 FPS canvas frame-scrubber engine
 │   │   ├── menuHoverImages.js     # Nav item floating cursor preview cards
 │   │   ├── productsAnimation.js   # 3D tilt perspective product card controller
-│   │   └── videoTextTimeline.js   # Video timeline synchronization
+│   │   └── textEffects.js         # Typography & text animation orchestrator
 │   ├── core/
-│   │   └── lenisScroll.js         # Lenis smooth scroll engine & GSAP sync
+│   │   └── scroll.js              # Lenis smooth scroll engine & GSAP sync
 │   ├── effects/
+│   │   ├── cursor.js              # Interactive magnetic cursor follower
+│   │   ├── splitText.js           # Vanilla DOM text splitter for animations
 │   │   └── textPressure.js        # Syne variable font pressure effects
 │   ├── loader/
-│   │   └── preloader.js           # Progressive asset bootstrapper
+│   │   ├── assetTracker.js        # True media loading & asset tracking
+│   │   └── curtainReveal.js       # Staged dual-curtain introduction sequence
 │   ├── styles/
-│   │   ├── aura-hero.css          # Hero typography & lighting effects
-│   │   ├── aura-navigation.css    # Responsive navigation drawer styling
+│   │   ├── hero-section.css       # Hero typography & lighting effects
+│   │   ├── navigation.css         # Responsive navigation drawer styling
 │   │   ├── curtain-reveal.css     # Curtain animation layers
 │   │   ├── footer.css             # Fluid typography & responsive footer grid
 │   │   ├── philosophy-section.css # Editorial zero-radius staggered layouts
 │   │   ├── shopping-section.css   # Product carousel & 3D cards
 │   │   └── style.css              # Design tokens, reset, & color palette
 │   ├── utils/
-│   │   └── splitText.js           # Vanilla DOM text splitter for animations
-│   └── main.js                    # Orchestrator & module entry point
+│   │   └── cacheManager.js        # Memory-safe asset cache utilities
+│   └── main.js                    # Orchestrator & master application entry point
 ├── index.html                     # Semantic HTML5 template with complete SEO/OG metadata
 ├── package.json                   # Project manifests & dependencies
 ├── vite.config.js                 # Rollup chunk optimization & Vite configuration

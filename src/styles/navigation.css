@@ -1,9 +1,9 @@
 /* ============================================
-   Navigation Bar Styles - Redesigned to Match Site
+   Town Team Navigation Bar Styles
    ============================================ */
 
 /* Override initial opacity transition */
-#aura-navigation {
+#town-navigation, #aura-navigation {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
@@ -22,19 +22,19 @@
 }
 
 @media (min-width: 768px) {
-  #aura-navigation {
+  #town-navigation, #aura-navigation {
     padding: 1.25rem 3rem !important;
   }
 }
 
 /* Hide navbar when scrolling down */
-#aura-navigation.hidden {
+#town-navigation, #aura-navigation.hidden {
   transform: translateY(-100%) !important;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 /* Scrolled state - black backdrop blur */
-#aura-navigation.scrolled {
+#town-navigation, #aura-navigation.scrolled {
   background: rgba(0, 0, 0, 0.7) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
@@ -42,7 +42,7 @@
 }
 
 /* Menu open state */
-#aura-navigation.menu-open {
+#town-navigation, #aura-navigation.menu-open {
   border: none !important;
   background: transparent !important;
   backdrop-filter: none !important;
@@ -50,7 +50,7 @@
 }
 
 /* Logo/Brand - Redesigned */
-.aura-nav-logo {
+.town-nav-logo, .aura-nav-logo {
   font-family: 'Space Grotesk', 'hkgroteskwide-bold', sans-serif !important;
   font-size: 1.5rem !important;
   font-weight: 700 !important;
@@ -66,22 +66,22 @@
   transition: color 0.3s ease, transform 0.3s ease !important;
 }
 
-#aura-navigation.menu-open .aura-nav-logo {
+#town-navigation, #aura-navigation.menu-open .town-nav-logo, .aura-nav-logo {
   color: white !important;
 }
 
-.aura-nav-logo-text {
+.town-nav-logo-text, .aura-nav-logo-text {
   color: inherit !important;
 }
 
-.aura-nav-logo-dot {
+.town-nav-logo-dot, .aura-nav-logo-dot {
   color: #E8FF6C !important;
   font-size: 1.8rem !important;
   line-height: 0.5 !important;
 }
 
 /* Center Navigation Container */
-.aura-nav-center {
+.town-nav-center, .aura-nav-center {
   position: absolute !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
@@ -89,19 +89,19 @@
 }
 
 /* Desktop Navigation Links - Redesigned */
-.aura-nav-links {
+.town-nav-links, .aura-nav-links {
   display: none !important;
   gap: 2.5rem !important;
   align-items: center !important;
 }
 
 @media (min-width: 1024px) {
-  .aura-nav-links {
+  .town-nav-links, .aura-nav-links {
     display: flex !important;
   }
 }
 
-.aura-nav-link {
+.town-nav-link, .aura-nav-link {
   font-family: 'Inter', sans-serif !important;
   font-size: 0.875rem !important;
   font-weight: 500 !important;
@@ -114,7 +114,7 @@
 }
 
 /* Hover underline effect - lime green */
-.aura-nav-link::after {
+.town-nav-link, .aura-nav-link::after {
   content: '' !important;
   position: absolute !important;
   bottom: -0.375rem !important;
@@ -126,21 +126,21 @@
 }
 
 @media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
-  .aura-nav-logo:hover {
+  .town-nav-logo, .aura-nav-logo:hover {
     transform: translateX(4px) !important;
   }
 
-  .aura-nav-link:hover {
+  .town-nav-link, .aura-nav-link:hover {
     color: #FFFFFF !important;
   }
 
-  .aura-nav-link:hover::after {
+  .town-nav-link, .aura-nav-link:hover::after {
     width: 100% !important;
   }
 }
 
 /* Navigation Actions (CTA + Menu Button) */
-.aura-nav-actions {
+.town-nav-actions, .aura-nav-actions {
   display: flex !important;
   align-items: center !important;
   gap: 1rem !important;
@@ -149,7 +149,7 @@
 }
 
 /* CTA Button - Transparent with Thin White Border */
-.aura-nav-cta-btn {
+.town-nav-cta-btn, .aura-nav-cta-btn {
   display: none !important;
   align-items: center !important;
   gap: 0.5rem !important;
@@ -170,28 +170,28 @@
 }
 
 @media (min-width: 768px) {
-  .aura-nav-cta-btn {
+  .town-nav-cta-btn, .aura-nav-cta-btn {
     display: flex !important;
   }
 }
 
 /* Remove yellow glow effect */
-.aura-nav-cta-btn::before {
+.town-nav-cta-btn, .aura-nav-cta-btn::before {
   display: none !important;
 }
 
-.aura-nav-cta-btn:active {
+.town-nav-cta-btn, .aura-nav-cta-btn:active {
   transform: scale(0.98) !important;
 }
 
-.aura-nav-cta-btn svg {
+.town-nav-cta-btn, .aura-nav-cta-btn svg {
   width: 16px !important;
   height: 16px !important;
   transition: transform 0.3s ease !important;
 }
 
 /* Menu Toggle Button - Redesigned */
-.aura-nav-menu-btn {
+.town-nav-menu-btn, .aura-nav-menu-btn {
   padding: 0.5rem !important;
   position: relative !important;
   z-index: 110 !important;
@@ -203,17 +203,17 @@
   color: #FFFFFF !important;
 }
 
-#aura-navigation.menu-open .aura-nav-menu-btn {
+#town-navigation, #aura-navigation.menu-open .town-nav-menu-btn, .aura-nav-menu-btn {
   color: white !important;
   background: rgba(255, 255, 255, 0.1) !important;
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-#aura-navigation.menu-open .aura-nav-cta-btn {
+#town-navigation, #aura-navigation.menu-open .town-nav-cta-btn, .aura-nav-cta-btn {
   display: none !important;
 }
 
-.aura-nav-menu-btn svg {
+.town-nav-menu-btn, .aura-nav-menu-btn svg {
   width: 24px !important;
   height: 24px !important;
   stroke-width: 2 !important;
@@ -221,43 +221,43 @@
 }
 
 @media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
-  .aura-nav-cta-btn:hover {
+  .town-nav-cta-btn, .aura-nav-cta-btn:hover {
     background: rgba(255, 255, 255, 0.1) !important;
     border-color: #FFFFFF !important;
   }
 
-  .aura-nav-cta-btn:hover svg {
+  .town-nav-cta-btn, .aura-nav-cta-btn:hover svg {
     transform: translateX(4px) !important;
   }
 
-  .aura-nav-menu-btn:hover {
+  .town-nav-menu-btn, .aura-nav-menu-btn:hover {
     background: rgba(255, 255, 255, 0.05) !important;
     border-color: rgba(255, 255, 255, 0.2) !important;
   }
 
-  #aura-navigation.menu-open .aura-nav-menu-btn:hover {
+  #town-navigation, #aura-navigation.menu-open .town-nav-menu-btn, .aura-nav-menu-btn:hover {
     background: rgba(255, 255, 255, 0.15) !important;
   }
 
-  .aura-nav-menu-btn:hover svg {
+  .town-nav-menu-btn, .aura-nav-menu-btn:hover svg {
     transform: rotate(180deg) !important;
   }
 
-  #aura-navigation.menu-open .aura-nav-menu-btn:hover svg {
+  #town-navigation, #aura-navigation.menu-open .town-nav-menu-btn, .aura-nav-menu-btn:hover svg {
     transform: rotate(90deg) !important;
   }
 }
 
 @media (max-width: 1024px) {
-  .aura-nav-logo:hover,
-  .aura-nav-cta-btn:hover,
-  .aura-nav-menu-btn:hover {
+  .town-nav-logo, .aura-nav-logo:hover,
+  .town-nav-cta-btn, .aura-nav-cta-btn:hover,
+  .town-nav-menu-btn, .aura-nav-menu-btn:hover {
     transform: none !important;
     background: transparent !important;
   }
 
-  .aura-nav-menu-btn:hover svg,
-  #aura-navigation.menu-open .aura-nav-menu-btn:hover svg {
+  .town-nav-menu-btn, .aura-nav-menu-btn:hover svg,
+  #town-navigation, #aura-navigation.menu-open .town-nav-menu-btn, .aura-nav-menu-btn:hover svg {
     transform: none !important;
   }
 }
@@ -266,39 +266,39 @@
    Mobile Responsiveness for Screens < 480px & < 360px
    ============================================ */
 @media (max-width: 480px) {
-  #aura-navigation {
+  #town-navigation, #aura-navigation {
     padding: 0.85rem 1.25rem !important;
   }
 
-  #aura-navigation.scrolled {
+  #town-navigation, #aura-navigation.scrolled {
     padding: 0.75rem 1.25rem !important;
   }
 
-  .aura-nav-logo {
+  .town-nav-logo, .aura-nav-logo {
     font-size: 1.25rem !important;
   }
 
-  .aura-nav-logo img {
+  .town-nav-logo, .aura-nav-logo img {
     width: 2.25rem !important;
     height: auto !important;
   }
 
-  .aura-nav-menu-btn {
+  .town-nav-menu-btn, .aura-nav-menu-btn {
     padding: 0.45rem !important;
   }
 
-  .aura-nav-menu-btn svg {
+  .town-nav-menu-btn, .aura-nav-menu-btn svg {
     width: 22px !important;
     height: 22px !important;
   }
 }
 
 @media (max-width: 360px) {
-  #aura-navigation {
+  #town-navigation, #aura-navigation {
     padding: 0.75rem 1rem !important;
   }
 
-  .aura-nav-logo img {
+  .town-nav-logo, .aura-nav-logo img {
     width: 2rem !important;
   }
 }
