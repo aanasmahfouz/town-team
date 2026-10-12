@@ -103,8 +103,8 @@ export function initCurtainReveal() {
   const progress = document.querySelector('.progress');
   const loaderBlack = document.querySelector('.loader');
   const loaderGray = document.querySelector('.loader-curtain-gray');
-  const heroSection = document.querySelector('#aura-hero-section');
-  const navigation = document.querySelector('#aura-navigation');
+  const heroSection = document.querySelector('#town-hero-section');
+  const navigation = document.querySelector('#town-navigation');
 
   // Safety checks
   if (!progress || !loaderBlack || !loaderGray) {
@@ -225,8 +225,8 @@ function initReducedMotionFallback() {
   lockScrollDuringLoad();
   const loaderBlack = document.querySelector('.loader');
   const loaderGray = document.querySelector('.loader-curtain-gray');
-  const heroSection = document.querySelector('#aura-hero-section');
-  const navigation = document.querySelector('#aura-navigation');
+  const heroSection = document.querySelector('#town-hero-section');
+  const navigation = document.querySelector('#town-navigation');
 
   setTimeout(() => {
     if (loaderBlack) loaderBlack.style.opacity = '0';

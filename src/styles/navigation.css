@@ -1,15 +1,15 @@
 /* ============================================
-   Town Team Navigation Bar Styles
+   Navigation Bar Styles - Redesigned to Match Site
    ============================================ */
 
 /* Override initial opacity transition */
-#town-navigation, #aura-navigation {
+#town-navigation {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
   width: 100% !important;
   z-index: 100 !important;
-  padding: 1rem 2rem !important;
+  padding: 0.75rem 1.25rem !important;
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
@@ -21,20 +21,26 @@
   transform: translateY(0) !important;
 }
 
+@media (max-width: 380px) {
+  #town-navigation {
+    padding: 0.6rem 0.75rem !important;
+  }
+}
+
 @media (min-width: 768px) {
-  #town-navigation, #aura-navigation {
+  #town-navigation {
     padding: 1.25rem 3rem !important;
   }
 }
 
 /* Hide navbar when scrolling down */
-#town-navigation, #aura-navigation.hidden {
+#town-navigation.hidden {
   transform: translateY(-100%) !important;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 /* Scrolled state - black backdrop blur */
-#town-navigation, #aura-navigation.scrolled {
+#town-navigation.scrolled {
   background: rgba(0, 0, 0, 0.7) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
@@ -42,7 +48,7 @@
 }
 
 /* Menu open state */
-#town-navigation, #aura-navigation.menu-open {
+#town-navigation.menu-open {
   border: none !important;
   background: transparent !important;
   backdrop-filter: none !important;
@@ -50,7 +56,7 @@
 }
 
 /* Logo/Brand - Redesigned */
-.town-nav-logo, .aura-nav-logo {
+.town-nav-logo {
   font-family: 'Space Grotesk', 'hkgroteskwide-bold', sans-serif !important;
   font-size: 1.5rem !important;
   font-weight: 700 !important;
@@ -66,22 +72,28 @@
   transition: color 0.3s ease, transform 0.3s ease !important;
 }
 
-#town-navigation, #aura-navigation.menu-open .town-nav-logo, .aura-nav-logo {
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  .town-nav-logo:hover {
+    transform: translateX(4px) !important;
+  }
+}
+
+#town-navigation.menu-open .town-nav-logo {
   color: white !important;
 }
 
-.town-nav-logo-text, .aura-nav-logo-text {
+.town-nav-logo-text {
   color: inherit !important;
 }
 
-.town-nav-logo-dot, .aura-nav-logo-dot {
+.town-nav-logo-dot {
   color: #E8FF6C !important;
   font-size: 1.8rem !important;
   line-height: 0.5 !important;
 }
 
 /* Center Navigation Container */
-.town-nav-center, .aura-nav-center {
+.town-nav-center {
   position: absolute !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
@@ -89,19 +101,19 @@
 }
 
 /* Desktop Navigation Links - Redesigned */
-.town-nav-links, .aura-nav-links {
+.town-nav-links {
   display: none !important;
   gap: 2.5rem !important;
   align-items: center !important;
 }
 
 @media (min-width: 1024px) {
-  .town-nav-links, .aura-nav-links {
+  .town-nav-links {
     display: flex !important;
   }
 }
 
-.town-nav-link, .aura-nav-link {
+.town-nav-link {
   font-family: 'Inter', sans-serif !important;
   font-size: 0.875rem !important;
   font-weight: 500 !important;
@@ -113,34 +125,30 @@
   text-transform: none !important;
 }
 
-/* Hover underline effect - lime green */
-.town-nav-link, .aura-nav-link::after {
-  content: '' !important;
-  position: absolute !important;
-  bottom: -0.375rem !important;
-  left: 0 !important;
-  width: 0 !important;
-  height: 2px !important;
-  background: #E8FF6C !important;
-  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-@media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
-  .town-nav-logo, .aura-nav-logo:hover {
-    transform: translateX(4px) !important;
-  }
-
-  .town-nav-link, .aura-nav-link:hover {
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  .town-nav-link:hover {
     color: #FFFFFF !important;
   }
 
-  .town-nav-link, .aura-nav-link:hover::after {
+  /* Hover underline effect - lime green */
+  .town-nav-link::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -0.375rem !important;
+    left: 0 !important;
+    width: 0 !important;
+    height: 2px !important;
+    background: #E8FF6C !important;
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  .town-nav-link:hover::after {
     width: 100% !important;
   }
 }
 
 /* Navigation Actions (CTA + Menu Button) */
-.town-nav-actions, .aura-nav-actions {
+.town-nav-actions {
   display: flex !important;
   align-items: center !important;
   gap: 1rem !important;
@@ -148,50 +156,76 @@
   z-index: 110 !important;
 }
 
-/* CTA Button - Transparent with Thin White Border */
-.town-nav-cta-btn, .aura-nav-cta-btn {
-  display: none !important;
+/* CTA Button - Transparent with Thin White Border - Visible on all devices */
+.town-nav-cta-btn {
+  display: flex !important;
   align-items: center !important;
-  gap: 0.5rem !important;
-  padding: 0.625rem 1.25rem !important;
+  gap: 0.35rem !important;
+  padding: 0.45rem 0.85rem !important;
   font-family: 'Inter', sans-serif !important;
-  font-size: 0.875rem !important;
+  font-size: 0.75rem !important;
   font-weight: 600 !important;
   letter-spacing: 0.02em !important;
   color: #FFFFFF !important;
   background: transparent !important;
   border: 1px solid #FFFFFF !important;
-  border-radius: 8px !important;
+  border-radius: 6px !important;
   cursor: pointer !important;
   text-decoration: none !important;
+  white-space: nowrap !important;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
   position: relative !important;
   overflow: hidden !important;
 }
 
+@media (max-width: 380px) {
+  .town-nav-actions {
+    gap: 0.45rem !important;
+  }
+  .town-nav-cta-btn {
+    gap: 0.25rem !important;
+    padding: 0.35rem 0.65rem !important;
+    font-size: 0.7rem !important;
+  }
+}
+
 @media (min-width: 768px) {
-  .town-nav-cta-btn, .aura-nav-cta-btn {
-    display: flex !important;
+  .town-nav-cta-btn {
+    gap: 0.5rem !important;
+    padding: 0.625rem 1.25rem !important;
+    font-size: 0.875rem !important;
+    border-radius: 8px !important;
   }
 }
 
 /* Remove yellow glow effect */
-.town-nav-cta-btn, .aura-nav-cta-btn::before {
+.town-nav-cta-btn::before {
   display: none !important;
 }
 
-.town-nav-cta-btn, .aura-nav-cta-btn:active {
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  .town-nav-cta-btn:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: #FFFFFF !important;
+  }
+
+  .town-nav-cta-btn:hover svg {
+    transform: translateX(4px) !important;
+  }
+}
+
+.town-nav-cta-btn:active {
   transform: scale(0.98) !important;
 }
 
-.town-nav-cta-btn, .aura-nav-cta-btn svg {
+.town-nav-cta-btn svg {
   width: 16px !important;
   height: 16px !important;
   transition: transform 0.3s ease !important;
 }
 
 /* Menu Toggle Button - Redesigned */
-.town-nav-menu-btn, .aura-nav-menu-btn {
+.town-nav-menu-btn {
   padding: 0.5rem !important;
   position: relative !important;
   z-index: 110 !important;
@@ -203,103 +237,82 @@
   color: #FFFFFF !important;
 }
 
-#town-navigation, #aura-navigation.menu-open .town-nav-menu-btn, .aura-nav-menu-btn {
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  .town-nav-menu-btn:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  #town-navigation.menu-open .town-nav-menu-btn:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+  }
+
+  .town-nav-menu-btn:hover svg {
+    transform: rotate(180deg) !important;
+  }
+}
+
+#town-navigation.menu-open .town-nav-menu-btn {
   color: white !important;
   background: rgba(255, 255, 255, 0.1) !important;
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-#town-navigation, #aura-navigation.menu-open .town-nav-cta-btn, .aura-nav-cta-btn {
-  display: none !important;
-}
-
-.town-nav-menu-btn, .aura-nav-menu-btn svg {
+.town-nav-menu-btn svg {
   width: 24px !important;
   height: 24px !important;
   stroke-width: 2 !important;
   transition: transform 0.3s ease !important;
 }
 
-@media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
-  .town-nav-cta-btn, .aura-nav-cta-btn:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border-color: #FFFFFF !important;
+/* Responsive Menu Item Size on Small Screens (<= 428px) */
+@media (max-width: 428px) {
+  .town-menu-items {
+    gap: 1.25rem !important;
   }
 
-  .town-nav-cta-btn, .aura-nav-cta-btn:hover svg {
-    transform: translateX(4px) !important;
-  }
-
-  .town-nav-menu-btn, .aura-nav-menu-btn:hover {
-    background: rgba(255, 255, 255, 0.05) !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
-  }
-
-  #town-navigation, #aura-navigation.menu-open .town-nav-menu-btn, .aura-nav-menu-btn:hover {
-    background: rgba(255, 255, 255, 0.15) !important;
-  }
-
-  .town-nav-menu-btn, .aura-nav-menu-btn:hover svg {
-    transform: rotate(180deg) !important;
-  }
-
-  #town-navigation, #aura-navigation.menu-open .town-nav-menu-btn, .aura-nav-menu-btn:hover svg {
-    transform: rotate(90deg) !important;
+  .town-menu-item {
+    font-size: clamp(1.85rem, 8vw, 2.25rem) !important;
+    white-space: nowrap !important;
   }
 }
 
-@media (max-width: 1024px) {
-  .town-nav-logo, .aura-nav-logo:hover,
-  .town-nav-cta-btn, .aura-nav-cta-btn:hover,
-  .town-nav-menu-btn, .aura-nav-menu-btn:hover {
+/* Disable navigation hover states on small screens & touch devices for optimal performance */
+@media (max-width: 1024px), (hover: none), (pointer: coarse) {
+  .town-nav-logo:hover {
     transform: none !important;
+  }
+
+  .town-nav-link:hover {
+    color: inherit !important;
+  }
+
+  .town-nav-link::after,
+  .town-nav-link:hover::after {
+    display: none !important;
+    width: 0 !important;
+  }
+
+  .town-nav-cta-btn:hover {
     background: transparent !important;
+    border-color: #FFFFFF !important;
+    transform: none !important;
   }
 
-  .town-nav-menu-btn, .aura-nav-menu-btn:hover svg,
-  #town-navigation, #aura-navigation.menu-open .town-nav-menu-btn, .aura-nav-menu-btn:hover svg {
+  .town-nav-cta-btn:hover svg {
+    transform: none !important;
+  }
+
+  .town-nav-menu-btn:hover {
+    background: transparent !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  #town-navigation.menu-open .town-nav-menu-btn:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .town-nav-menu-btn:hover svg {
     transform: none !important;
   }
 }
-
-/* ============================================
-   Mobile Responsiveness for Screens < 480px & < 360px
-   ============================================ */
-@media (max-width: 480px) {
-  #town-navigation, #aura-navigation {
-    padding: 0.85rem 1.25rem !important;
-  }
-
-  #town-navigation, #aura-navigation.scrolled {
-    padding: 0.75rem 1.25rem !important;
-  }
-
-  .town-nav-logo, .aura-nav-logo {
-    font-size: 1.25rem !important;
-  }
-
-  .town-nav-logo, .aura-nav-logo img {
-    width: 2.25rem !important;
-    height: auto !important;
-  }
-
-  .town-nav-menu-btn, .aura-nav-menu-btn {
-    padding: 0.45rem !important;
-  }
-
-  .town-nav-menu-btn, .aura-nav-menu-btn svg {
-    width: 22px !important;
-    height: 22px !important;
-  }
-}
-
-@media (max-width: 360px) {
-  #town-navigation, #aura-navigation {
-    padding: 0.75rem 1rem !important;
-  }
-
-  .town-nav-logo, .aura-nav-logo img {
-    width: 2rem !important;
-  }
-}
-

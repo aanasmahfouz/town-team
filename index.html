@@ -16,13 +16,13 @@
     rel="stylesheet">
   <link rel="preload" href="/assets/town-team-logo.webp" as="image" type="image/webp">
 
-  <!-- Three.js for Aura Hero Particle System -->
+  <!-- Three.js 3D System -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 
-  <link rel="stylesheet" href="/src/styles/style.css">
+  <link rel="stylesheet" href="/src/styles/main.css">
   <link rel="stylesheet" href="/src/styles/curtain-reveal.css">
-  <link rel="stylesheet" href="/src/styles/town-team-hero.css">
-  <link rel="stylesheet" href="/src/styles/town-team-navigation.css">
+  <link rel="stylesheet" href="/src/styles/hero.css">
+  <link rel="stylesheet" href="/src/styles/navigation.css">
   <link rel="stylesheet" href="/src/styles/shopping-section.css">
   <link rel="stylesheet" href="/src/styles/philosophy-section.css">
   <!-- <link rel="stylesheet" href="src/tailwind.css"> -->
@@ -58,33 +58,33 @@
     <div id="global-scroll-progress" class="global-scroll-progress" aria-hidden="true"></div>
 
     <!-- ====================================
-         AURA NAVIGATION BAR
+         TOWN TEAM NAVIGATION BAR
          ==================================== -->
-    <nav id="aura-navigation" class="aura-font-body aura-antialiased">
-      <a href="#aura-hero-section" class="aura-nav-logo">
-        <span class="aura-nav-logo-text">
+    <nav id="town-navigation" class="town-font-body town-antialiased">
+      <a href="#town-hero-section" class="town-nav-logo">
+        <span class="town-nav-logo-text">
           <img class="w-10" src="/assets/town-team-logo.webp" alt="Town Team Logo" width="40" height="40" decoding="async">
         </span>
       </a>
 
-      <div class="aura-nav-center">
-        <div class="aura-nav-links">
-          <a href="#about" class="aura-nav-link">About</a>
-          <a href="#collections" class="aura-nav-link">Collections</a>
-          <a href="#shopping" class="aura-nav-link">Shopping</a>
+      <div class="town-nav-center">
+        <div class="town-nav-links">
+          <a href="#about" class="town-nav-link">About</a>
+          <a href="#collections" class="town-nav-link">Collections</a>
+          <a href="#shopping" class="town-nav-link">Shopping</a>
         </div>
       </div>
 
-      <div class="aura-nav-actions">
-        <a href="#collections" class="aura-nav-cta-btn">
+      <div class="town-nav-actions">
+        <a href="#collections" class="town-nav-cta-btn">
           <span>Shop Now</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
         </a>
-        <button id="aura-menu-btn" class="aura-nav-menu-btn" aria-label="Toggle menu">
-          <span id="aura-menu-icon">
+        <button id="town-menu-btn" class="town-nav-menu-btn" aria-label="Toggle menu">
+          <span id="town-menu-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -97,168 +97,99 @@
     </nav>
 
     <!-- ====================================
-         AURA FULL-SCREEN MENU OVERLAY
+         TOWN TEAM FULL-SCREEN MENU OVERLAY
          ==================================== -->
-    <div id="aura-menu-overlay" class="aura-font-body aura-antialiased">
+    <div id="town-menu-overlay" class="town-font-body town-antialiased">
       <!-- Background Image Container -->
-      <div class="aura-menu-bg-image-container">
-        <div class="aura-menu-bg-image home-bg active"
+      <div class="town-menu-bg-image-container">
+        <div class="town-menu-bg-image home-bg active"
           style="background-image: url('/assets/live-with-passion-campaign.webp');"></div>
-        <div class="aura-menu-bg-image about-bg" style="background-image: url('/assets/model.webp');"></div>
-        <div class="aura-menu-bg-image collections-bg" style="background-image: url('/assets/collection.webp');"></div>
-        <div class="aura-menu-bg-image shopping-bg"
+        <div class="town-menu-bg-image about-bg" style="background-image: url('/assets/model.webp');"></div>
+        <div class="town-menu-bg-image collections-bg" style="background-image: url('/assets/collection.webp');"></div>
+        <div class="town-menu-bg-image shopping-bg"
           style="background-image: url('/assets/seaside-time-campaign.webp');"></div>
       </div>
 
       <!-- Menu Items -->
-      <div class="aura-menu-items">
-        <a href="#home" class="aura-menu-item cursoreffect" data-menu="home">Home</a>
-        <a href="#about" class="aura-menu-item cursoreffect" data-menu="about">About</a>
-        <a href="#collections" class="aura-menu-item cursoreffect" data-menu="collections">Collections</a>
-        <a href="#shopping" class="aura-menu-item cursoreffect" data-menu="shopping">Shopping</a>
+      <div class="town-menu-items">
+        <a href="#home" class="town-menu-item cursoreffect" data-menu="home">Home</a>
+        <a href="#about" class="town-menu-item cursoreffect" data-menu="about">About</a>
+        <a href="#collections" class="town-menu-item cursoreffect" data-menu="collections">Collections</a>
+        <a href="#shopping" class="town-menu-item cursoreffect" data-menu="shopping">Shopping</a>
       </div>
 
       <!-- Menu Footer -->
-      <div class="aura-menu-footer">
-        <div class="aura-menu-social">
+      <div class="town-menu-footer">
+        <div class="town-menu-social">
           <a href="https://www.instagram.com/townteam/" target="_blank" rel="noopener noreferrer"
-            class="aura-menu-social-link cursoreffect" aria-label="Instagram">Instagram</a>
+            class="town-menu-social-link cursoreffect" aria-label="Instagram">Instagram</a>
           <a href="https://www.facebook.com/townteam" target="_blank" rel="noopener noreferrer"
-            class="aura-menu-social-link cursoreffect" aria-label="Facebook">Facebook</a>
+            class="town-menu-social-link cursoreffect" aria-label="Facebook">Facebook</a>
           <a href="https://www.tiktok.com/@townteam98" target="_blank" rel="noopener noreferrer"
-            class="aura-menu-social-link cursoreffect" aria-label="TikTok">TikTok</a>
+            class="town-menu-social-link cursoreffect" aria-label="TikTok">TikTok</a>
         </div>
-        <div class="aura-menu-copyright">
+        <div class="town-menu-copyright">
           &copy; <span class="menu-year">2026</span> <a href="https://github.com/aanasmahfouz" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Anas Mahfouz</a>
         </div>
       </div>
     </div>
 
     <!-- ====================================
-         AURA HERO SECTION
+         TOWN TEAM HERO SECTION
          ==================================== -->
-    <section id="aura-hero-section" class="aura-font-body aura-antialiased">
+    <section id="town-hero-section" class="town-font-body town-antialiased">
       <!-- Background Decorative Glow -->
-      <div class="aura-hero-bg-glow">
-        <div class="aura-hero-bg-glow-inner"></div>
+      <div class="town-hero-bg-glow">
+        <div class="town-hero-bg-glow-inner"></div>
       </div>
 
       <!-- Three.js Canvas Container -->
-      <div id="aura-hero-canvas-container">
-        <canvas id="aura-hero-canvas"></canvas>
+      <div id="town-hero-canvas-container">
+        <canvas id="town-hero-canvas"></canvas>
       </div>
 
       <!-- Hero Content -->
-      <div class="aura-hero-content">
-        <div class="aura-hero-text-wrapper">
+      <div class="town-hero-content">
+        <div class="town-hero-text-wrapper">
           <!-- Subtitle -->
-          <div class="aura-hero-subtitle">
+          <div class="town-hero-subtitle">
             Modern Casualwear Since 1998
           </div>
 
           <!-- Main Title Container -->
-          <div class="aura-hero-title-container">
+          <div class="town-hero-title-container">
             <!-- Layer 1: YOUR STYLE (Background) -->
-            <h1 class="aura-hero-title-main">
+            <h1 class="town-hero-title-main">
               YOUR STYLE
             </h1>
 
             <!-- Layer 2: TOWN TEAM (Foreground - Main Focus) -->
-            <h1 class="aura-hero-title-overlay">
+            <h1 class="town-hero-title-overlay">
               TOWN TEAM
             </h1>
           </div>
 
           <!-- Description
-          <div class="aura-hero-description-wrapper">
-            <p class="aura-hero-description">
-              Egyptian streetwear that moves with <span class="aura-hero-description-accent">your rhythm</span>. From morning commutes to weekend escapes—fashion built for how you actually live.
+          <div class="town-hero-description-wrapper">
+            <p class="town-hero-description">
+              Egyptian streetwear that moves with <span class="town-hero-description-accent">your rhythm</span>. From morning commutes to weekend escapes—fashion built for how you actually live.
             </p>
           </div> -->
         </div>
       </div>
 
+      <div id="home" class="absolute top-0 left-0" aria-hidden="true"></div>
       <!-- Scroll Indicator -->
-      <div class="aura-hero-scroll-indicator">
-        <div class="aura-hero-scroll-content">
-          <span class="aura-hero-scroll-text">Explore Collection</span>
-          <div class="aura-hero-scroll-line-container">
-            <div class="aura-hero-scroll-line-bg"></div>
-            <div class="aura-hero-scroll-line-animated"></div>
+      <div class="town-hero-scroll-indicator">
+        <div class="town-hero-scroll-content">
+          <span class="town-hero-scroll-text">Explore Collection</span>
+          <div class="town-hero-scroll-line-container">
+            <div class="town-hero-scroll-line-bg"></div>
+            <div class="town-hero-scroll-line-animated"></div>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- ====================================
-         ORIGINAL TOWN TEAM HERO (HIDDEN)
-         ==================================== -->
-    <div id="home" class="hero w-full h-screen relative flex justify-center items-center" style="display: none;">
-      <div class="herocanvas">
-        <!-- Original sidenav - hidden -->
-        <div
-          class="sidenav absolute top-0 -right-[40%] w-1/3  h-full flex-col lg:flex hidden gap-10 text-black z-[999] pt-10 px-10 mix-blend-difference"
-          style="background: var(--color-text-primary); display: none !important;">
-          <div class="cross text-5xl cursor-pointer cursoreffect" style="color: var(--color-text-primary);">✖</div>
-          <a href="#home" aria-label="Home"
-            class="foottext-wrap text-effect link-slide-wrap block w-fit overflow-hidden cursor-pointer">
-            <h4 class="text-2xl">Home</h4>
-            <h4 class="text-2xl">Home</h4>
-          </a>
-          <a href="https://townteam.com/" target="_blank" rel="noreferrer" aria-label="Shop Town Team"
-            class="foottext-wrap text-effect link-slide-wrap block w-fit overflow-hidden cursor-pointer">
-            <h4 class="text-2xl">Shop Collection</h4>
-            <h4 class="text-2xl">Shop Collection</h4>
-          </a>
-          <a href="#campaigns" aria-label="Featured campaigns"
-            class="foottext-wrap text-effect link-slide-wrap block w-fit overflow-hidden cursor-pointer">
-            <h4 class="text-2xl">Latest Drops</h4>
-            <h4 class="text-2xl">Latest Drops</h4>
-          </a>
-          <a href="https://townteam.com/pages/about-town-team" target="_blank" rel="noreferrer"
-            aria-label="About Town Team"
-            class="foottext-wrap text-effect link-slide-wrap block w-fit overflow-hidden cursor-pointer">
-            <h4 class="text-2xl">Our Story</h4>
-            <h4 class="text-2xl">Our Story</h4>
-          </a>
-        </div>
-        <!-- Original nav - hidden -->
-        <div class="nav w-full h-[10vh] absolute py-3 px-5 flex justify-between items-center top-0 left-0 z-[2]"
-          style="color: var(--color-text-primary); display: none !important;">
-          <div class="left">
-            <a href="#home" aria-label="Town Team home"><img class="w-14 cursoreffect mx-5 mt-8"
-                src="/assets/town-team-logo.webp" alt="Town Team logo" width="56" height="56" loading="lazy" decoding="async"></a>
-          </div>
-          <div class="mid lg:flex hidden gap-5">
-            <h1 class="cursoreffect tracking-wider font-medium"
-              style="font-family: var(--font-body); letter-spacing: 0.02em;"><a href="https://townteam.com/"
-                target="_blank" rel="noreferrer">Shop</a></h1>
-            <h1 class="cursoreffect tracking-wider font-medium"
-              style="font-family: var(--font-body); letter-spacing: 0.02em;"><a href="#campaigns">Latest</a></h1>
-            <h1 class="cursoreffect tracking-wider font-medium"
-              style="font-family: var(--font-body); letter-spacing: 0.02em;"><a
-                href="https://townteam.com/pages/about-town-team" target="_blank" rel="noreferrer">Story</a></h1>
-          </div>
-          <div class="right cursoreffect cursor-pointer">
-            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4H21V6H3V4ZM9 11H21V13H9V11ZM3 18H21V20H3V18Z"/></svg>
-          </div>
-        </div>
-        <div class="herooverlay  w-full h-[20vh] tracking-wider absolute top-1/2 -translate-y-1/2 font-semibold"
-          style="color: var(--color-text-primary);">
-
-        </div>
-        <div
-          class="herotext flex justify-between w-full text-[10rem] tracking-wide font-semibold absolute top-1/2 left-0 p-10 -translate-y-1/2  z-[2]"
-          style="color: var(--color-text-primary);">
-          <h1 class="cursoreffect lg:text-[5rem] text-[4rem] font-[hkgroteskwide-bold] text-center">TOWN TEAM</h1>
-          <h1
-            class="cursoreffect text-[5rem] lg:flex hidden font-[hkgroteskwide-bold] font-bold [-webkit-text-stroke:1px_white]"
-            id="collection-title" style="color: var(--color-primary);">MOVE FREELY</h1>
-        </div>
-        <canvas id="herocanvas" class="w-full h-screen absolute top-0 left-0">
-        </canvas>
-      </div>
-    </div>
 
     <div id="about" class="about w-full min-h-screen flex items-center">
       <div class="aboutcontent relative w-full h-full flex flex-col justify-center items-center py-20">
@@ -649,12 +580,12 @@
     </div>
   </div>
 
-  <script type="module" src="/src/scripts/script.js"></script>
-  <script type="module" src="/src/scripts/three.js"></script>
+  <script type="module" src="/src/scripts/main.js"></script>
+  <script type="module" src="/src/scripts/three-scene.js"></script>
 
   <!-- Town Team Components Scripts (load after Three.js) -->
-  <script type="module" src="/src/scripts/town-team-navigation.js"></script>
-  <script type="module" src="/src/scripts/town-team-hero.js"></script>
+  <script type="module" src="/src/scripts/navigation.js"></script>
+  <script type="module" src="/src/scripts/hero.js"></script>
 
 
 

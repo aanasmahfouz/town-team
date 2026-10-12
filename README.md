@@ -102,18 +102,18 @@ town-team/
 │   └── videos/                    # Brand campaign cinematic loops
 ├── src/
 │   ├── scripts/
-│   │   ├── script.js              # Core orchestration, scroll triggers & product animations
-│   │   ├── three.js               # Three.js 3D model engine with capability-aware tracking
-│   │   ├── town-team-hero.js      # Hero typography & desktop mouse parallax
-│   │   ├── town-team-navigation.js# Fullscreen luxury overlay navigation
+│   │   ├── main.js                # Core orchestration, scroll triggers & product animations
+│   │   ├── hero.js                # Hero typography & desktop mouse parallax
+│   │   ├── navigation.js          # Fullscreen luxury overlay navigation
 │   │   ├── curtain-reveal.js      # Dual-curtain wipe reveal introduction
-│   │   ├── splitText.js           # Kinetic typography & character splitter
-│   │   ├── textPressure.js        # Dynamic variable font pressure effect
+│   │   ├── three-scene.js         # Three.js 3D model engine with capability-aware tracking
+│   │   ├── split-text.js          # Kinetic typography & character splitter
+│   │   ├── text-pressure.js       # Dynamic variable font pressure effect
 │   │   └── menu-hover-images.js   # Dynamic menu background image switching
 │   └── styles/
-│       ├── style.css              # Global tokens, reset, typography & mobile optimizations
-│       ├── town-team-hero.css     # Hero typography & lighting effects
-│       ├── town-team-navigation.css# Responsive navigation & menu drawer
+│       ├── main.css               # Global tokens, reset, typography & mobile optimizations
+│       ├── hero.css               # Hero typography & lighting effects
+│       ├── navigation.css         # Responsive navigation & menu drawer
 │       ├── curtain-reveal.css     # Curtain animation layers
 │       ├── philosophy-section.css # Editorial zero-radius layouts
 │       └── shopping-section.css   # Product carousel & responsive cards

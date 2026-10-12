@@ -1,0 +1,575 @@
+@import url('./philosophy-section.css');
+@import url('./shopping-section.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Font Faces for Brand Identity */
+@font-face {
+  font-family: "orbitron";
+  src: url(/fonts/hkgroteskwide-bold.otf);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "piximisa";
+  src: url(/fonts/Piximisa.ttf);
+  font-display: swap;
+}
+@font-face {
+  font-family: "priestacy";
+  src: url(/fonts/Priestacy.otf);
+  font-display: swap;
+}
+@font-face {
+  font-family: "hkgroteskwide-bold";
+  src: url(/fonts/hkgroteskwide-bold.otf);
+  font-display: swap;
+}
+@font-face {
+  font-family: "orbitron-VariableFont_wght";
+  src: url(/fonts/Orbitron-VariableFont_wght.ttf);
+  font-display: swap;
+}
+
+/* Modern Color System */
+:root {
+  /* Primary Brand Colors */
+  --color-primary: #0A0A0A;
+  --color-primary-light: #1A1A1A;
+  --color-background: #000000;
+  
+  /* Accent Colors */
+  --color-accent: #E8FF6C;
+  --color-accent-secondary: #6C8CFF;
+  --color-accent-tertiary: #FF6C8C;
+  
+  /* Neutral Palette */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #A3A3A3;
+  --color-text-muted: rgba(255, 255, 255, 0.6);
+  --color-border: rgba(255, 255, 255, 0.1);
+  
+  /* Semantic Colors */
+  --color-success: #4ADE80;
+  --color-info: #60A5FA;
+  --color-warning: #FBBF24;
+  
+  /* Typography */
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Space Grotesk', 'hkgroteskwide-bold', sans-serif;
+  --font-brand: 'hkgroteskwide-bold', sans-serif;
+  
+  /* Spacing & Sizing */
+  --nav-height: 10vh;
+  --border-radius-sm: 8px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 24px;
+}
+
+/* ============================================================
+   Luxury Fluid Scrollbar & High-End UI/UX Experience
+   ============================================================ */
+
+/* 1. Base Document Flow - Seamless Edge-to-Edge (Zero Gutter Reservation) */
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* 2. Desktop Floating Overlay Scrollbar (>= 1024px) */
+@media (min-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 9999px;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent, #e8ff6c);
+    box-shadow: 0 0 10px rgba(232, 255, 108, 0.5);
+  }
+}
+
+/* 3. Mobile & Touch Screen Scrollbar - Completely Hidden for Native Touch UI/UX (< 1024px) */
+@media (max-width: 1023px), (pointer: coarse) {
+  html,
+  body {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  ::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+}
+
+/* 4. Overlay & Loading Lock States (Menu Open / Site Loading) */
+html.loading-lock,
+body.loading-lock,
+html.town-menu-open,
+body.town-menu-open {
+  overflow: hidden !important;
+  scrollbar-width: none !important;
+  touch-action: none;
+}
+
+html.loading-lock::-webkit-scrollbar,
+body.loading-lock::-webkit-scrollbar,
+html.town-menu-open::-webkit-scrollbar,
+body.town-menu-open::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* 5. Luxury Global Scroll Progress Bar (Top-Edge HUD Indicator) */
+.global-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2.5px;
+  background: linear-gradient(90deg, #e8ff6c 0%, #ffffff 100%);
+  box-shadow: 0 0 12px rgba(232, 255, 108, 0.8), 0 0 4px rgba(232, 255, 108, 0.4);
+  z-index: 99999;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+html.loading-lock .global-scroll-progress,
+html.town-menu-open .global-scroll-progress,
+body.town-menu-open .global-scroll-progress {
+  opacity: 0 !important;
+}
+
+/* Base Typography */
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+}
+
+/* Default heading styles - can be overridden by specific component classes */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Specific section heading styles */
+.abouthead h1{
+  font-family: var(--font-brand);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.products-wrapper h1{
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.left h1{
+  font-family: var(--font-display);
+}
+
+img, video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Scroll Video Section with Progress Indicator */
+.features {
+  background: var(--color-background);
+  position: relative;
+}
+
+.frame-scroll-wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform-origin: center center;
+  will-change: transform, border-radius;
+}
+
+/* Video Progress Indicator */
+.video-progress-indicator {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.video-progress-indicator.active {
+  opacity: 1;
+}
+
+.progress-bar-container {
+  width: 200px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--color-accent);
+  width: 0%;
+  transition: width 0.05s linear;
+  box-shadow: 0 0 10px rgba(232, 255, 108, 0.5);
+}
+
+.progress-text {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.overlay{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  .overlay:hover {
+    opacity: 1;
+  }
+}
+
+.herotext h1{
+  font-family: var(--font-brand);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.cardimg{
+  filter: grayscale(0.3);
+  transition: filter 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  .cardimg:hover {
+    filter: grayscale(0);
+  }
+}
+
+.foottext-wrap span {
+  display: inline-block;
+}
+
+.link-slide-wrap {
+  height: 1.35em;
+  line-height: 1.35;
+}
+
+.link-slide-wrap h4 {
+  margin: 0;
+  line-height: 1.35;
+  white-space: nowrap;
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.footer-link {
+  display: inline-block;
+  width: fit-content;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  .footer-link:hover {
+    color: var(--color-text-primary);
+    transform: translateX(6px);
+  }
+}
+
+.footer-follow {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+/* Footer Horizontal Line & Brand Signature */
+.footer-divider-line {
+  height: 1px;
+  background-color: var(--color-text-primary);
+  width: 100%;
+  opacity: 0.85;
+}
+
+.footer-brand {
+  font-family: "priestacy", sans-serif;
+  color: var(--color-text-primary);
+  font-size: clamp(1.25rem, 1.8vw, 2.1rem);
+  line-height: 0.85;
+  letter-spacing: 0.04em;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.footer-stay-connected {
+  font-family: "priestacy", sans-serif;
+  color: var(--color-text-primary);
+  font-size: clamp(1.25rem, 1.8vw, 2.1rem);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  user-select: none;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+
+@keyframes animate {
+  0%,
+  100% {
+    transform: translate(0, 10px);
+  }
+  50% {
+    transform: translate(0, -10px);
+  }
+}
+
+@media(max-width:426px) {
+  .mobilefoot{
+    display: flex;
+  }
+  
+  .video-progress-indicator {
+    bottom: 1rem;
+  }
+  
+  .progress-bar-container {
+    width: 150px;
+  }
+}
+
+
+/* Video Text Timeline Overlay */
+.video-text-timeline {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 100 !important;
+  pointer-events: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.timeline-text-item {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  text-align: center !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  padding: 0 2rem !important;
+}
+
+.timeline-main-text {
+  font-family: var(--font-display) !important;
+  font-size: clamp(2.5rem, 8vw, 5rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--color-text-primary) !important;
+  margin-bottom: 1rem !important;
+  text-transform: uppercase !important;
+}
+
+.timeline-sub-text {
+  font-family: var(--font-body) !important;
+  font-size: clamp(1rem, 2vw, 1.5rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.05em !important;
+  color: var(--color-text-secondary) !important;
+  opacity: 0.7 !important;
+  text-transform: uppercase !important;
+}
+
+@media (max-width: 768px) {
+  .video-text-timeline {
+    padding: 0 1.5rem !important;
+  }
+  
+  .timeline-main-text {
+    font-size: clamp(2rem, 10vw, 3.5rem) !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .timeline-sub-text {
+    font-size: clamp(0.875rem, 3vw, 1.125rem) !important;
+  }
+}
+
+/* Capability-Aware Mobile, Small Screen & Touch Optimizations */
+@media (max-width: 1024px), (hover: none), (pointer: coarse) {
+  /* Prevent any hover transforms or sticky states across elements */
+  *:hover {
+    transform: none !important;
+  }
+
+  /* Custom mouse follower cursor is disabled */
+  .cursor {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  .cursoreffect {
+    cursor: auto !important;
+  }
+
+  /* Overlays on products / lookbook disabled on hover */
+  .overlay,
+  .overlay:hover {
+    opacity: 0 !important;
+    display: none !important;
+    pointer-events: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Image grayscale / hover filter transitions disabled */
+  .cardimg,
+  .cardimg:hover {
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Navigation hover effects disabled */
+  .town-nav-logo:hover {
+    transform: none !important;
+  }
+
+  .town-nav-link:hover {
+    color: inherit !important;
+  }
+
+  .town-nav-link::after,
+  .town-nav-link:hover::after {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+  }
+
+  .town-nav-cta-btn:hover {
+    background: transparent !important;
+    border-color: #FFFFFF !important;
+    transform: none !important;
+  }
+
+  .town-nav-cta-btn:hover svg {
+    transform: none !important;
+  }
+
+  .town-nav-menu-btn:hover {
+    background: transparent !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  #town-navigation.menu-open .town-nav-menu-btn:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .town-nav-menu-btn:hover svg {
+    transform: none !important;
+  }
+
+  /* Menu items hover disabled */
+  .town-menu-item:hover {
+    font-style: normal !important;
+    transform: none !important;
+  }
+
+  .town-menu-social-link:hover {
+    opacity: 0.4 !important;
+  }
+
+  /* Philosophy section hover disabled */
+  .philosophy-headline:hover .emphasis,
+  .philosophy-headline:hover .emphasis-secondary {
+    opacity: 1 !important;
+  }
+
+  /* Footer link hover translate / color flicker disabled */
+  .footer-link:hover {
+    transform: none !important;
+    color: var(--color-text-muted) !important;
+  }
+
+  /* Text effect span animations */
+  .text-effect:hover span {
+    transform: none !important;
+  }
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* GPU Performance & Will-Change optimization */
+.frame-scroll-wrap {
+  contain: paint layout;
+}

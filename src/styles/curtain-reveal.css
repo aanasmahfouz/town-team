@@ -38,7 +38,7 @@
 }
 
 /* Hero section initial state - slightly scaled down and blurred for "arrival" effect */
-#aura-hero-section {
+#town-hero-section {
   opacity: 0;
   transform: scale(0.98) translateZ(0);
   filter: blur(8px);
@@ -47,7 +47,7 @@
   pointer-events: none;
 }
 
-#aura-hero-section.visible {
+#town-hero-section.visible {
   opacity: 1;
   transform: scale(1) translateZ(0);
   filter: blur(0);
@@ -55,13 +55,13 @@
 }
 
 /* Navigation initial state */
-#aura-navigation {
+#town-navigation {
   opacity: 0;
   will-change: opacity;
   pointer-events: none;
 }
 
-#aura-navigation.visible {
+#town-navigation.visible {
   opacity: 1;
   pointer-events: all;
 }
@@ -88,7 +88,7 @@
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
   }
   
-  #aura-hero-section {
+  #town-hero-section {
     filter: blur(4px);
   }
 }
@@ -97,8 +97,8 @@
 @media (prefers-reduced-motion: reduce) {
   .loader,
   .loader-curtain-gray,
-  #aura-hero-section,
-  #aura-navigation {
+  #town-hero-section,
+  #town-navigation {
     transition: opacity 0.3s ease !important;
     transform: none !important;
     filter: none !important;
