@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   publicDir: 'public',
@@ -9,25 +9,26 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          'vendor-gsap': ['gsap', 'gsap/ScrollTrigger'],
-          'vendor-scroll': ['locomotive-scroll']
+          gsap: ['gsap', 'gsap/ScrollTrigger'],
+          scroll: ['locomotive-scroll'],
+          three: ['three'],
         },
         assetFileNames: (assetInfo) => {
           if (assetInfo.name && assetInfo.name.match(/^(\d+)\.webp$/)) {
-            return 'lookbook-frames/[name][extname]';
+            return 'lookbook-frames/[name][extname]'
           }
-          if (assetInfo.name && assetInfo.name.match(/\.(woff2?|ttf|otf|eot)$/)) {
-            return 'fonts/[name][extname]';
+          if (assetInfo.name.match(/\.(woff2?|ttf|otf|eot)$/)) {
+            return 'fonts/[name][extname]'
           }
-          if (assetInfo.name && assetInfo.name.match(/\.(mp4|webm|ogg)$/)) {
-            return 'videos/[name][extname]';
+          if (assetInfo.name.match(/\.(mp4|webm|ogg)$/)) {
+            return 'videos/[name][extname]'
           }
-          if (assetInfo.name && assetInfo.name.match(/\.(webp|jpg|jpeg|png|gif|svg|jfif)$/)) {
-            return 'assets/[name][extname]';
+          if (assetInfo.name.match(/\.(webp|jpg|jpeg|png|gif|svg)$/)) {
+            return 'assets/[name][extname]'
           }
-          return 'assets/[name][extname]';
+          return 'assets/[name][extname]'
         },
       },
     },
   },
-});
+})

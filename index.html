@@ -5,89 +5,88 @@
   <meta charset="UTF-8" />
   <link rel="icon" href="/assets/town-team-favicon.ico" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Town Team — Modern Egyptian casualwear engineered for life in motion. Featuring an interactive 60 FPS lookbook canvas, curated seasonal campaigns, and dynamic editorial styling since 1998." />
-  <meta name="author" content="Anas Mahfouz" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="robots" content="index, follow" />
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Town Team" />
-  <meta property="og:title" content="Town Team — Modern Casual Fashion Showcase" />
-  <meta property="og:description" content="Interactive digital fashion showcase for Town Team. Modern casualwear engineered for life in motion." />
-  <meta property="og:image" content="/assets/live-with-passion-campaign.webp" />
+  <meta name="description"
+    content="Modern Egyptian casualwear for life in motion. Discover comfortable, quality fashion designed for every moment since 1998." />
+  <title>Town Team — Modern Casual Fashion</title>
 
-  <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Town Team — Modern Casual Fashion Showcase" />
-  <meta name="twitter:description" content="Interactive digital fashion showcase for Town Team. Modern casualwear engineered for life in motion." />
-  <meta name="twitter:image" content="/assets/live-with-passion-campaign.webp" />
-
-  <title>Town Team — Modern Casual Fashion Showcase</title>
-  
-  <!-- Preconnect and Google Fonts -->
+  <!-- Google Fonts (Inter, Space Grotesk, Syne) with font-display: swap -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  
-  <!-- Stylesheets -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap"
+    rel="stylesheet">
+  <link rel="preload" href="/assets/town-team-logo.webp" as="image" type="image/webp">
+
+  <!-- Three.js for Aura Hero Particle System -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
   <link rel="stylesheet" href="/src/styles/style.css">
   <link rel="stylesheet" href="/src/styles/curtain-reveal.css">
-  <link rel="stylesheet" href="/src/styles/hero-section.css">
-  <link rel="stylesheet" href="/src/styles/navigation.css">
-  <link rel="stylesheet" href="/src/styles/philosophy-section.css">
+  <link rel="stylesheet" href="/src/styles/town-team-hero.css">
+  <link rel="stylesheet" href="/src/styles/town-team-navigation.css">
   <link rel="stylesheet" href="/src/styles/shopping-section.css">
-  <link rel="stylesheet" href="/src/styles/footer.css">
+  <link rel="stylesheet" href="/src/styles/philosophy-section.css">
+  <!-- <link rel="stylesheet" href="src/tailwind.css"> -->
 </head>
 
 <body>
   <div class="main w-full relative overflow-x-hidden" style="background: var(--color-background);">
-     <!-- Loading Screen Layer 1 (Black with loader content) -->
-     <div class="loader font-[Urbanist] flex flex-col justify-center items-center w-full h-screen fixed top-0 left-0 z-[9999] bg-black">
-      <div class="loader-logo w-52 h-52 mb-6"><img class="w-full h-full object-cover" src="/assets/town-team-logo.png" alt="Town Team Logo"></div>
-      <h1 class="text-9xl font-[piximisa] text-white tracking-wider">TOWN TEAM </h1>
-      <div class="logotext mt-5 text-center h-[1.5rem] overflow-hidden animate-pulse">
-        <h1 class="relative font-semibold text-white font-[orbitron] tracking-wide ">Loading Vibes, Setting Trends...</h1>
+    <!-- Loading Screen Layer 1 (Black with loader content) -->
+    <div
+      class="loader font-[Urbanist] flex flex-col justify-center items-center w-full h-screen fixed top-0 left-0 z-[9999] bg-black px-4">
+      <div class="loader-logo w-24 h-24 sm:w-32 sm:h-32 md:w-44 md:h-44 mb-3 sm:mb-5"><img class="w-full h-full object-contain"
+          src="/assets/town-team-logo.webp" alt="Town Team" width="176" height="176" decoding="async" fetchpriority="high"></div>
+      <h1 class="loader-title text-3xl sm:text-5xl md:text-7xl lg:text-9xl font-[piximisa] text-white tracking-wider text-center whitespace-nowrap">TOWN TEAM</h1>
+      <div class="logotext mt-3 sm:mt-5 text-center h-[1.5rem] overflow-hidden animate-pulse">
+        <h1 class="relative font-semibold text-white font-[orbitron] tracking-wide text-xs sm:text-sm md:text-base">Loading Vibes, Setting Trends...
+        </h1>
       </div>
-      <div class="progressbar mt-4 w-60 h-1 bg-zinc-600 overflow-hidden rounded-full">
+      <div class="progressbar mt-4 w-44 sm:w-60 max-w-[75vw] h-1 bg-zinc-800 overflow-hidden rounded-full">
         <div class="progress bg-zinc-100 w-0 h-1"></div>
       </div>
     </div>
-    
-    <!-- Loading Screen Layer 2 (Gray intermediate curtain) -->
-    <div class="loader-curtain-gray fixed top-0 left-0 w-full h-screen z-[9998] bg-gradient-to-b from-[#000001] to-zinc-950"></div>
 
-    <div class="cursor lg:flex hidden w-4 h-4 pointer-events-none fixed z-[6] rounded-full bg-white -translate-x-1/2 -translate-y-1/2 opacity-0 mix-blend-difference ">
+    <!-- Loading Screen Layer 2 (Gray intermediate curtain) -->
+    <div
+      class="loader-curtain-gray fixed top-0 left-0 w-full h-screen z-[9998] bg-gradient-to-b from-[#000001] to-zinc-950">
     </div>
 
+    <div
+      class="cursor lg:flex hidden w-4 h-4 pointer-events-none fixed z-[6] rounded-full bg-white -translate-x-1/2 -translate-y-1/2 opacity-0 mix-blend-difference">
+    </div>
+
+    <!-- Global Luxury Scroll Progress Indicator -->
+    <div id="global-scroll-progress" class="global-scroll-progress" aria-hidden="true"></div>
+
     <!-- ====================================
-         TOWN TEAM NAVIGATION BAR
+         AURA NAVIGATION BAR
          ==================================== -->
-    <nav id="town-navigation" class="town-font-body town-antialiased">
-      <a href="#town-hero-section" class="town-nav-logo">
-        <span class="town-nav-logo-text">
-          <img class="w-10" src="/assets/town-team-logo.png" alt="Town Team Logo">
+    <nav id="aura-navigation" class="aura-font-body aura-antialiased">
+      <a href="#aura-hero-section" class="aura-nav-logo">
+        <span class="aura-nav-logo-text">
+          <img class="w-10" src="/assets/town-team-logo.webp" alt="Town Team Logo" width="40" height="40" decoding="async">
         </span>
       </a>
 
-      <div class="town-nav-center">
-        <div class="town-nav-links">
-          <a href="#about" class="town-nav-link">About</a>
-          <a href="#collections" class="town-nav-link">Collections</a>
-          <a href="#shopping" class="town-nav-link">Shopping</a>
+      <div class="aura-nav-center">
+        <div class="aura-nav-links">
+          <a href="#about" class="aura-nav-link">About</a>
+          <a href="#collections" class="aura-nav-link">Collections</a>
+          <a href="#shopping" class="aura-nav-link">Shopping</a>
         </div>
       </div>
 
-      <div class="town-nav-actions">
-        <a href="#collections" class="town-nav-cta-btn">
+      <div class="aura-nav-actions">
+        <a href="#collections" class="aura-nav-cta-btn">
           <span>Shop Now</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
           </svg>
         </a>
-        <button id="town-menu-btn" class="town-nav-menu-btn" aria-label="Toggle menu">
-          <span id="town-menu-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <button id="aura-menu-btn" class="aura-nav-menu-btn" aria-label="Toggle menu">
+          <span id="aura-menu-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="6" x2="21" y2="6"></line>
               <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -98,82 +97,94 @@
     </nav>
 
     <!-- ====================================
-         TOWN TEAM FULL-SCREEN MENU OVERLAY
+         AURA FULL-SCREEN MENU OVERLAY
          ==================================== -->
-    <div id="town-menu-overlay" class="town-font-body town-antialiased">
+    <div id="aura-menu-overlay" class="aura-font-body aura-antialiased">
       <!-- Background Image Container -->
-      <div class="town-menu-bg-image-container">
-        <div class="town-menu-bg-image home-bg active" style="background-image: url('/assets/live-with-passion-campaign.webp');"></div>
-        <div class="town-menu-bg-image about-bg" style="background-image: url('/assets/model.webp');"></div>
-        <div class="town-menu-bg-image collections-bg" style="background-image: url('/assets/collection.webp');"></div>
-        <div class="town-menu-bg-image shopping-bg" style="background-image: url('/assets/seaside-time-campaign.webp');"></div>
+      <div class="aura-menu-bg-image-container">
+        <div class="aura-menu-bg-image home-bg active"
+          style="background-image: url('/assets/live-with-passion-campaign.webp');"></div>
+        <div class="aura-menu-bg-image about-bg" style="background-image: url('/assets/model.webp');"></div>
+        <div class="aura-menu-bg-image collections-bg" style="background-image: url('/assets/collection.webp');"></div>
+        <div class="aura-menu-bg-image shopping-bg"
+          style="background-image: url('/assets/seaside-time-campaign.webp');"></div>
       </div>
 
       <!-- Menu Items -->
-      <div class="town-menu-items">
-        <a href="#home" class="town-menu-item cursoreffect" data-menu="home">Home</a>
-        <a href="#about" class="town-menu-item cursoreffect" data-menu="about">About</a>
-        <a href="#collections" class="town-menu-item cursoreffect" data-menu="collections">Collections</a>
-        <a href="#shopping" class="town-menu-item cursoreffect" data-menu="shopping">Shopping</a>
+      <div class="aura-menu-items">
+        <a href="#home" class="aura-menu-item cursoreffect" data-menu="home">Home</a>
+        <a href="#about" class="aura-menu-item cursoreffect" data-menu="about">About</a>
+        <a href="#collections" class="aura-menu-item cursoreffect" data-menu="collections">Collections</a>
+        <a href="#shopping" class="aura-menu-item cursoreffect" data-menu="shopping">Shopping</a>
       </div>
 
       <!-- Menu Footer -->
-      <div class="town-menu-footer">
-        <div class="town-menu-social">
-          <a href="https://www.instagram.com/townteam/" target="_blank" rel="noopener noreferrer" class="town-menu-social-link cursoreffect" aria-label="Instagram">Instagram</a>
-          <a href="https://www.facebook.com/townteam" target="_blank" rel="noopener noreferrer" class="town-menu-social-link cursoreffect" aria-label="Facebook">Facebook</a>
-          <a href="https://www.tiktok.com/@townteam98" target="_blank" rel="noopener noreferrer" class="town-menu-social-link cursoreffect" aria-label="TikTok">TikTok</a>
+      <div class="aura-menu-footer">
+        <div class="aura-menu-social">
+          <a href="https://www.instagram.com/townteam/" target="_blank" rel="noopener noreferrer"
+            class="aura-menu-social-link cursoreffect" aria-label="Instagram">Instagram</a>
+          <a href="https://www.facebook.com/townteam" target="_blank" rel="noopener noreferrer"
+            class="aura-menu-social-link cursoreffect" aria-label="Facebook">Facebook</a>
+          <a href="https://www.tiktok.com/@townteam98" target="_blank" rel="noopener noreferrer"
+            class="aura-menu-social-link cursoreffect" aria-label="TikTok">TikTok</a>
         </div>
-        <div class="town-menu-copyright">
-          &copy; <span class="menu-year">2026</span> Anas Mahfouz. All rights reserved.
+        <div class="aura-menu-copyright">
+          &copy; <span class="menu-year">2026</span> <a href="https://github.com/aanasmahfouz" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Anas Mahfouz</a>
         </div>
       </div>
     </div>
 
     <!-- ====================================
-         TOWN TEAM HERO SECTION
+         AURA HERO SECTION
          ==================================== -->
-    <section id="town-hero-section" class="town-font-body town-antialiased">
+    <section id="aura-hero-section" class="aura-font-body aura-antialiased">
       <!-- Background Decorative Glow -->
-      <div class="town-hero-bg-glow">
-        <div class="town-hero-bg-glow-inner"></div>
+      <div class="aura-hero-bg-glow">
+        <div class="aura-hero-bg-glow-inner"></div>
       </div>
 
-      <!-- Hero Canvas Container (hidden) -->
-      <div id="town-hero-canvas-container" style="display: none;">
-        <canvas id="town-hero-canvas"></canvas>
+      <!-- Three.js Canvas Container -->
+      <div id="aura-hero-canvas-container">
+        <canvas id="aura-hero-canvas"></canvas>
       </div>
 
       <!-- Hero Content -->
-      <div class="town-hero-content">
-        <div class="town-hero-text-wrapper">
+      <div class="aura-hero-content">
+        <div class="aura-hero-text-wrapper">
           <!-- Subtitle -->
-          <div class="town-hero-subtitle">
+          <div class="aura-hero-subtitle">
             Modern Casualwear Since 1998
           </div>
 
           <!-- Main Title Container -->
-          <div class="town-hero-title-container">
+          <div class="aura-hero-title-container">
             <!-- Layer 1: YOUR STYLE (Background) -->
-            <h1 class="town-hero-title-main">
+            <h1 class="aura-hero-title-main">
               YOUR STYLE
             </h1>
 
             <!-- Layer 2: TOWN TEAM (Foreground - Main Focus) -->
-            <h1 class="town-hero-title-overlay">
+            <h1 class="aura-hero-title-overlay">
               TOWN TEAM
             </h1>
           </div>
+
+          <!-- Description
+          <div class="aura-hero-description-wrapper">
+            <p class="aura-hero-description">
+              Egyptian streetwear that moves with <span class="aura-hero-description-accent">your rhythm</span>. From morning commutes to weekend escapes—fashion built for how you actually live.
+            </p>
+          </div> -->
         </div>
       </div>
 
       <!-- Scroll Indicator -->
-      <div class="town-hero-scroll-indicator">
-        <div class="town-hero-scroll-content">
-          <span class="town-hero-scroll-text">Explore Collection</span>
-          <div class="town-hero-scroll-line-container">
-            <div class="town-hero-scroll-line-bg"></div>
-            <div class="town-hero-scroll-line-animated"></div>
+      <div class="aura-hero-scroll-indicator">
+        <div class="aura-hero-scroll-content">
+          <span class="aura-hero-scroll-text">Explore Collection</span>
+          <div class="aura-hero-scroll-line-container">
+            <div class="aura-hero-scroll-line-bg"></div>
+            <div class="aura-hero-scroll-line-animated"></div>
           </div>
         </div>
       </div>
@@ -184,60 +195,96 @@
          ==================================== -->
     <div id="home" class="hero w-full h-screen relative flex justify-center items-center" style="display: none;">
       <div class="herocanvas">
-        <div class="sidenav absolute top-0 -right-[40%] w-1/3  h-full flex-col lg:flex hidden gap-10 text-black z-[999] pt-10 px-10 mix-blend-difference" style="background: var(--color-text-primary); display: none !important;">
+        <!-- Original sidenav - hidden -->
+        <div
+          class="sidenav absolute top-0 -right-[40%] w-1/3  h-full flex-col lg:flex hidden gap-10 text-black z-[999] pt-10 px-10 mix-blend-difference"
+          style="background: var(--color-text-primary); display: none !important;">
           <div class="cross text-5xl cursor-pointer cursoreffect" style="color: var(--color-text-primary);">✖</div>
-          <a href="#home" aria-label="Home" class="foottext-wrap text-effect link-slide-wrap block w-fit overflow-hidden cursor-pointer">
+          <a href="#home" aria-label="Home"
+            class="foottext-wrap text-effect link-slide-wrap block w-fit overflow-hidden cursor-pointer">
             <h4 class="text-2xl">Home</h4>
             <h4 class="text-2xl">Home</h4>
           </a>
-          <a href="https://townteam.com/" target="_blank" rel="noreferrer" aria-label="Shop Town Team" class="foottext-wrap text-effect link-slide-wrap block w-fit overflow-hidden cursor-pointer">
+          <a href="https://townteam.com/" target="_blank" rel="noreferrer" aria-label="Shop Town Team"
+            class="foottext-wrap text-effect link-slide-wrap block w-fit overflow-hidden cursor-pointer">
             <h4 class="text-2xl">Shop Collection</h4>
             <h4 class="text-2xl">Shop Collection</h4>
           </a>
-          <a href="#campaigns" aria-label="Featured campaigns" class="foottext-wrap text-effect link-slide-wrap block w-fit overflow-hidden cursor-pointer">
+          <a href="#campaigns" aria-label="Featured campaigns"
+            class="foottext-wrap text-effect link-slide-wrap block w-fit overflow-hidden cursor-pointer">
             <h4 class="text-2xl">Latest Drops</h4>
             <h4 class="text-2xl">Latest Drops</h4>
           </a>
-          <a href="https://townteam.com/pages/about-town-team" target="_blank" rel="noreferrer" aria-label="About Town Team" class="foottext-wrap text-effect link-slide-wrap block w-fit overflow-hidden cursor-pointer">
+          <a href="https://townteam.com/pages/about-town-team" target="_blank" rel="noreferrer"
+            aria-label="About Town Team"
+            class="foottext-wrap text-effect link-slide-wrap block w-fit overflow-hidden cursor-pointer">
             <h4 class="text-2xl">Our Story</h4>
             <h4 class="text-2xl">Our Story</h4>
           </a>
         </div>
-        <div class="nav w-full h-[10vh] absolute py-3 px-5 flex justify-between items-center top-0 left-0 z-[2]" style="color: var(--color-text-primary); display: none !important;">
+        <!-- Original nav - hidden -->
+        <div class="nav w-full h-[10vh] absolute py-3 px-5 flex justify-between items-center top-0 left-0 z-[2]"
+          style="color: var(--color-text-primary); display: none !important;">
           <div class="left">
-            <a href="#home" aria-label="Town Team home"><img class="w-14 cursoreffect mx-5 mt-8" src="/assets/town-team-logo.png" alt="Town Team logo"></a>
+            <a href="#home" aria-label="Town Team home"><img class="w-14 cursoreffect mx-5 mt-8"
+                src="/assets/town-team-logo.webp" alt="Town Team logo" width="56" height="56" loading="lazy" decoding="async"></a>
           </div>
           <div class="mid lg:flex hidden gap-5">
-            <h1 class="cursoreffect tracking-wider font-medium" style="font-family: var(--font-body); letter-spacing: 0.02em;"><a href="https://townteam.com/" target="_blank" rel="noreferrer">Shop</a></h1>
-            <h1 class="cursoreffect tracking-wider font-medium" style="font-family: var(--font-body); letter-spacing: 0.02em;"><a href="#campaigns">Latest</a></h1>
-            <h1 class="cursoreffect tracking-wider font-medium" style="font-family: var(--font-body); letter-spacing: 0.02em;"><a href="https://townteam.com/pages/about-town-team" target="_blank" rel="noreferrer">Story</a></h1>
+            <h1 class="cursoreffect tracking-wider font-medium"
+              style="font-family: var(--font-body); letter-spacing: 0.02em;"><a href="https://townteam.com/"
+                target="_blank" rel="noreferrer">Shop</a></h1>
+            <h1 class="cursoreffect tracking-wider font-medium"
+              style="font-family: var(--font-body); letter-spacing: 0.02em;"><a href="#campaigns">Latest</a></h1>
+            <h1 class="cursoreffect tracking-wider font-medium"
+              style="font-family: var(--font-body); letter-spacing: 0.02em;"><a
+                href="https://townteam.com/pages/about-town-team" target="_blank" rel="noreferrer">Story</a></h1>
           </div>
           <div class="right cursoreffect cursor-pointer">
-            <i class="ri-menu-3-line text-[32px]"></i>
+            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4H21V6H3V4ZM9 11H21V13H9V11ZM3 18H21V20H3V18Z"/></svg>
           </div>
         </div>
-        <div class="herooverlay w-full h-[20vh] tracking-wider absolute top-1/2 -translate-y-1/2 font-semibold" style="color: var(--color-text-primary);"></div>
-        <div class="herotext flex justify-between w-full text-[10rem] tracking-wide font-semibold absolute top-1/2 left-0 p-10 -translate-y-1/2  z-[2]" style="color: var(--color-text-primary);">
+        <div class="herooverlay  w-full h-[20vh] tracking-wider absolute top-1/2 -translate-y-1/2 font-semibold"
+          style="color: var(--color-text-primary);">
+
+        </div>
+        <div
+          class="herotext flex justify-between w-full text-[10rem] tracking-wide font-semibold absolute top-1/2 left-0 p-10 -translate-y-1/2  z-[2]"
+          style="color: var(--color-text-primary);">
           <h1 class="cursoreffect lg:text-[5rem] text-[4rem] font-[hkgroteskwide-bold] text-center">TOWN TEAM</h1>
-          <h1 class="cursoreffect text-[5rem] lg:flex hidden font-[hkgroteskwide-bold] font-bold [-webkit-text-stroke:1px_white]" id="collection-title" style="color: var(--color-primary);">MOVE FREELY</h1>
+          <h1
+            class="cursoreffect text-[5rem] lg:flex hidden font-[hkgroteskwide-bold] font-bold [-webkit-text-stroke:1px_white]"
+            id="collection-title" style="color: var(--color-primary);">MOVE FREELY</h1>
         </div>
+        <canvas id="herocanvas" class="w-full h-screen absolute top-0 left-0">
+        </canvas>
       </div>
     </div>
 
-    <div id="about" class="about">
-      <div class="aboutcontent">
-        <div class="abouthead">
-          <h1 class="cursoreffect">TOWN <span class="abouthead-team">TEAM</span></h1>
+    <div id="about" class="about w-full min-h-screen flex items-center">
+      <div class="aboutcontent relative w-full h-full flex flex-col justify-center items-center py-20">
+        <div class="abouthead" style="color: var(--color-text-primary);">
+          <h1 class=" lg:text-[5rem] md:text-[4rem] text-[2.5rem] tracking-wider cursoreffect">TOWN <span
+              style="color: var(--color-primary); -webkit-text-stroke: 2px var(--color-text-primary); text-stroke: 2px var(--color-text-primary); paint-order: stroke fill; font-weight: 700;">TEAM</span>
+          </h1>
         </div>
-        <h1 class="para-effect cursoreffect">Since 1998, we've crafted modern casualwear for how you actually live. From morning commutes to weekend escapes, our collections blend comfort, quality, and understated style that moves with you.</h1>
+        <h1
+          class="para-effect lg:w-[80vw] w-full tracking-wider lg:p-10 p-5 text-center font-light lg:text-[2rem] md:text-[1.5rem] text-[1.15rem] cursoreffect"
+          style="color: var(--color-text-primary); opacity: 0.85; font-family: var(--font-body); line-height: 1.5; letter-spacing: -0.01em;">
+          Since 1998, we've crafted modern casualwear for how you actually live. From morning commutes to weekend
+          escapes, our collections blend comfort, quality, and understated style that moves with you.</h1>
+
       </div>
     </div>
-
     <div id="campaigns" data-text="" class="videodiv w-full h-screen relative cursoreffect">
-      <video loop muted autoplay playsinline class="w-full h-full object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" src="/videos/town-team-showreel.mp4"></video>
+      <video loop muted autoplay playsinline preload="metadata"
+        poster="/videos/town-team-showreel-poster.webp"
+        class="w-full h-full object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <source media="(max-width: 768px)" src="/videos/town-team-showreel-mobile.mp4" type="video/mp4">
+        <source src="/videos/town-team-showreel.mp4" type="video/mp4">
+      </video>
     </div>
-
-    <div id="collections" class="products w-full h-screen overflow-hidden relative" style="color: var(--color-text-primary);">
+    <div id="collections" class="products w-full h-screen overflow-hidden relative"
+      style="color: var(--color-text-primary);">
       <div class="products-wrapper w-full h-full relative flex justify-center items-center">
         <h1 class="lg:text-[8rem] text-[3rem] font-semibold">Latest Drops</h1>
       </div>
@@ -245,90 +292,98 @@
         class="product-imgs cursoreffect absolute top-[110%] -right-[30%] lg:h-[90vh] h-[60vh] lg:w-[70vw] w-[75vw] opacity-100 overflow-hidden imgs-right"
         id="right1">
         <div class="overlay w-full h-full" id="overlay1">
-          <h1 class="product1 lg:text-[5rem] text-[3rem]" style="font-family: var(--font-display); font-weight: 600;">Seaside Time</h1>
+          <h1 class="product1 lg:text-[5rem] text-[3rem]" style="font-family: var(--font-display); font-weight: 600;">
+            Seaside Time</h1>
         </div>
-        <img src="/assets/seaside-time-campaign.webp" alt="Town Team Seaside Time campaign">
+        <img src="/assets/seaside-time-campaign.webp" alt="Town Team Seaside Time campaign" width="3320" height="1263" loading="lazy" decoding="async">
       </div>
       <div
         class="product-imgs cursoreffect absolute top-[110%] -left-[20%] lg:h-[90vh] h-[60vh] lg:w-[70vw] w-[75vw] opacity-100 overflow-hidden imgs-left"
         id="left1">
         <div class="overlay w-full h-full" id="overlay2">
-          <h1 class="product2 lg:text-[5rem] text-[3rem]" style="font-family: var(--font-display); font-weight: 600;">Live With Passion</h1>
+          <h1 class="product2 lg:text-[5rem] text-[3rem]" style="font-family: var(--font-display); font-weight: 600;">
+            Live With Passion</h1>
         </div>
-        <img src="/assets/live-with-passion-campaign.webp" alt="Town Team Live With Passion campaign">
+        <img src="/assets/live-with-passion-campaign.webp" alt="Town Team Live With Passion campaign" width="3320" height="1263" loading="lazy" decoding="async">
       </div>
       <div
         class="product-imgs cursoreffect absolute top-[110%] -right-[30%] lg:h-[90vh] h-[60vh] lg:w-[70vw] w-[75vw] opacity-100 overflow-hidden imgs-right"
         id="right2">
         <div class="overlay w-full h-full" id="overlay3">
-          <h1 class="product3 lg:text-[5rem] text-[3rem]" style="font-family: var(--font-display); font-weight: 600;">Town Festival</h1>
+          <h1 class="product3 lg:text-[5rem] text-[3rem]" style="font-family: var(--font-display); font-weight: 600;">
+            Town Festival</h1>
         </div>
-        <img src="/assets/town-festival-campaign.webp" alt="Town Team festival campaign">
+        <img src="/assets/town-festival-campaign.webp" alt="Town Team festival campaign" width="2193" height="811" loading="lazy" decoding="async">
       </div>
       <div
         class="product-imgs cursoreffect absolute top-[110%] -left-[20%] lg:h-[90vh] h-[60vh] lg:w-[70vw] w-[75vw] opacity-100 overflow-hidden imgs-left"
         id="left2">
         <div class="overlay w-full h-full" id="overlay4">
-          <h1 class="product4 lg:text-[5rem] text-[3rem]" style="font-family: var(--font-display); font-weight: 600;">Ride the Wind</h1>
+          <h1 class="product4 lg:text-[5rem] text-[3rem]" style="font-family: var(--font-display); font-weight: 600;">
+            Ride the Wind</h1>
         </div>
-        <img src="/assets/ride-the-wind-campaign.webp" alt="Town Team Ride the Wind campaign">
+        <img src="/assets/ride-the-wind-campaign.webp" alt="Town Team Ride the Wind campaign" width="3320" height="1263" loading="lazy" decoding="async">
       </div>
       <div
         class="product-imgs cursoreffect absolute top-[110%] -right-[30%] lg:h-[90vh] h-[60vh] lg:w-[70vw] w-[75vw] opacity-100 overflow-hidden imgs-right"
         id="right3">
         <div class="overlay w-full h-full" id="overlay5">
-          <h1 class="product5 lg:text-[5rem] text-[3rem]" style="font-family: var(--font-display); font-weight: 600;">Summer on the Move</h1>
+          <h1 class="product5 lg:text-[5rem] text-[3rem]" style="font-family: var(--font-display); font-weight: 600;">
+            Summer on the Move</h1>
         </div>
-        <img src="/assets/summer-on-the-move-campaign.webp" alt="Town Team summer campaign">
+        <img src="/assets/summer-on-the-move-campaign.webp" alt="Town Team summer campaign" width="1638" height="2048" loading="lazy" decoding="async">
       </div>
       <div
         class="product-imgs cursoreffect absolute top-[110%] -left-[20%] lg:h-[90vh] h-[60vh] lg:w-[70vw] w-[75vw] opacity-100 overflow-hidden imgs-left"
         id="left3">
         <div class="overlay w-full h-full" id="overlay6">
-          <h1 class="product6 lg:text-[5rem] text-[3rem]" style="font-family: var(--font-display); font-weight: 600;">Teen Summer</h1>
+          <h1 class="product6 lg:text-[5rem] text-[3rem]" style="font-family: var(--font-display); font-weight: 600;">
+            Teen Summer</h1>
         </div>
-        <img src="/assets/teen-summer-campaign.webp" alt="Town Team teen summer campaign">
+        <img src="/assets/teen-summer-campaign.webp" alt="Town Team teen summer campaign" width="2000" height="652" loading="lazy" decoding="async">
       </div>
     </div>
-
     <div class="content w-full">
-      <div class="content1">
-        <div class="content-images-wrapper content1-images">
-          <div data-scroll data-scroll-speed=".4" class="contentimg cursoreffect">
-            <img src="/assets/pullover-editorial.webp" alt="Town Team pullover editorial">
+      <div class="content1 flex flex-col lg:flex-row">
+        <div class="content-gallery content-gallery-left grid grid-cols-2 lg:flex">
+          <div data-scroll data-scroll-speed=".4" class="contentimg w-full aspect-[3/4] lg:aspect-auto lg:w-[20rem] lg:h-[30rem] cursoreffect">
+            <img src="/assets/pullover-editorial.webp" alt="Town Team pullover editorial" width="890" height="1088" loading="lazy" decoding="async">
           </div>
-          <div data-scroll data-scroll-speed=".3" class="contentimg cursoreffect">
-            <img src="/assets/own-your-next-move-editorial.webp" alt="Town Team summer editorial">
+          <div data-scroll data-scroll-speed=".3" class="contentimg w-full aspect-[3/4] lg:aspect-auto lg:w-[25rem] lg:h-[40rem] cursoreffect">
+            <img src="/assets/own-your-next-move-editorial.webp" alt="Town Team summer editorial" width="1638" height="2048" loading="lazy" decoding="async">
           </div>
         </div>
-        <div class="philosophy-section">
+        <div class="philosophy-section lg:w-[60vw] w-full">
           <p class="philosophy-overline cursoreffect">The Movement</p>
           <h1 class="philosophy-headline cursoreffect">
             Style That <span class="emphasis">Moves</span> With You.
           </h1>
-          <p class="philosophy-secondary cursoreffect">Modern casualwear designed for everyday confidence. Explore timeless essentials, versatile layers, and effortless styles made to match every moment.</p>
+          <p class="philosophy-secondary cursoreffect">Modern casualwear designed for everyday confidence. Explore
+            timeless essentials, versatile layers, and effortless styles made to match every moment.</p>
         </div>
       </div>
-      <div class="content2">
-        <div class="philosophy-section">
+      <div class="content2 flex flex-col lg:flex-row">
+        <div class="philosophy-section lg:w-[60vw] w-full lg:mt-[5rem]">
           <p class="philosophy-overline">The Expression</p>
           <h1 class="philosophy-headline cursoreffect">
             Fashion That <span class="emphasis-secondary">Fits</span> Your Story.
           </h1>
-          <p class="philosophy-secondary cursoreffect">Versatile styles for campus, travel, weekends—wherever you're headed. Fashion that fits your story, not the other way around.</p>
+          <p class="philosophy-secondary cursoreffect">Versatile styles for campus, travel, weekends—wherever you're
+            headed. Fashion that fits your story, not the other way around.</p>
         </div>
-        <div class="content-images-wrapper content2-images">
-          <div data-scroll data-scroll-speed=".5" class="contentimg cursoreffect">
-            <img src="/assets/summer-sale-editorial.webp" alt="Town Team summer collection editorial">
+        <div class="content-gallery content-gallery-right grid grid-cols-2 lg:flex">
+          <div data-scroll data-scroll-speed=".5"
+            class="contentimg w-full aspect-[3/4] lg:aspect-auto lg:w-[20rem] lg:h-[20rem] lg:mt-[5rem] cursoreffect">
+            <img src="/assets/summer-sale-editorial.webp" alt="Town Team summer collection editorial" width="2048" height="2048" loading="lazy" decoding="async">
           </div>
-          <div data-scroll data-scroll-speed=".3" class="contentimg cursoreffect">
-            <img src="/assets/summer-knit-editorial.webp" alt="Town Team knitwear editorial">
+          <div data-scroll data-scroll-speed=".3" class="contentimg w-full aspect-[3/4] lg:aspect-auto lg:w-[20rem] lg:h-[30rem] cursoreffect">
+            <img src="/assets/summer-knit-editorial.webp" alt="Town Team knitwear editorial" width="2048" height="2048" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
     </div>
-
-    <div class="features w-full h-screen relative overflow-hidden" style="color: var(--color-text-primary); position: relative; z-index: 1;">
+    <div class="features w-full h-screen relative overflow-hidden"
+      style="color: var(--color-text-primary); position: relative; z-index: 1;">
       <div class="frame-scroll-wrap w-full h-full" style="position: relative; z-index: 1;">
         <canvas id="frame" class="block w-full h-full" style="position: relative; z-index: 1;"></canvas>
       </div>
@@ -340,170 +395,253 @@
         <span class="progress-text" id="progressText">Exploring Collection</span>
       </div>
     </div>
-
     <div id="shopping" class="shopping w-full">
-      <div class="shopping-wrapper w-full flex flex-col relative px-3" style="color: var(--color-text-primary);">
-        <!-- Slide 1: Style That Moves With You -->
-        <div class="slide1">
-          <div class="slide-header cursoreffect">
-            <h1>Style That</h1>
-            <h1 class="slide-accent"> Moves</h1>
-            <img src="/assets/gap.webp" class="slide-badge-img" alt="Style in motion">
-            <h1> With You</h1>
+      <div class="shopping-wrapper w-full flex flex-col relative gap-10 px-3" style="color: var(--color-text-primary);">
+        <div class="slide1 w-full lg:h-screen pt-20 flex items-center flex-col gap-5 relative">
+          <!-- Slide 1 Header (Universal) -->
+          <div class="slide1h1 slide-header text-center lg:text-5xl font-semibold cursoreffect pb-3"
+            style="border-bottom: 2px solid var(--color-border); font-family: var(--font-display); line-height: 1.2;">
+            <h1 style="margin: 0; padding: 0;">Style That</h1>
+            <h1 style="margin: 0; padding: 0; color: var(--color-accent); font-style: italic;"> Moves</h1>
+            <img src="/assets/gap.webp" class="w-12 sm:w-16 lg:w-20 mx-2 sm:mx-3 lg:mx-5 rounded-none" alt="" width="80" height="53" loading="lazy" decoding="async">
+            <h1 style="margin: 0; padding: 0;"> With You</h1>
           </div>
 
-          <div class="slide1-mobile-container">
-            <div data-scroll data-scroll-speed=".2" class="slidevideo-container cursoreffect">
-              <video autoplay loop muted playsinline src="/videos/style-in-motion.mp4"></video>
-            </div>
-
-            <div class="slide1-quotes-wrapper">
-              <div class="slideelem slideelem-left">
-                <h1>Seasonless casualwear for year-round wear</h1>
-                <h1>Comfortable layers that move with your life</h1>
-              </div>
-              <div class="slideelem slideelem-right">
-                <h1>Versatile pieces for work and weekends</h1>
-                <h1>Effortless style that's unmistakably you</h1>
-              </div>
-            </div>
+          <!-- Desktop Only Elements (Preserved 100% as original) -->
+          <div
+            class="desktop-only-element slideelem absolute lg:top-[15vw] lg:left-[7vw] top-[20vh] left-0 z-[2] p-10 mix-blend-difference flex flex-col gap-5 justify-center">
+            <h1 class="tracking-wider text-2xl" style="font-family: var(--font-body);">Seasonless casualwear for year-round wear</h1>
+            <h1 class="tracking-wider text-2xl" style="font-family: var(--font-body);">Comfortable layers that move with your life</h1>
           </div>
-
-          <!-- Floating media on desktop -->
-          <div data-scroll data-scroll-speed=".2" class="slideimg-model cursoreffect">
-            <img src="/assets/model.webp" alt="Textured campaign detail">
+          <div
+            class="desktop-only-element slideelem absolute lg:bottom-[10vw] lg:right-[7vw] top-[50vh] z-[2] p-10 mix-blend-difference flex flex-col gap-5 justify-center">
+            <h1 class="tracking-wider text-2xl" style="font-family: var(--font-body);">Versatile pieces for work and weekends</h1>
+            <h1 class="tracking-wider text-2xl" style="font-family: var(--font-body);">Effortless style that's unmistakably you</h1>
           </div>
-          <div data-scroll data-scroll-speed=".3" class="slideimg-logo cursoreffect">
+          <div data-scroll data-scroll-speed=".2"
+            class="desktop-only-element slideimg cursoreffect absolute top-[7vw] right-[10vw] w-[17rem] h-[17rem] overflow-hidden lg:opacity-100 opacity-0">
+            <img src="/assets/model.webp" alt="Textured campaign detail" width="2048" height="2048" loading="lazy" decoding="async">
+          </div>
+          <div data-scroll data-scroll-speed=".3"
+            class="desktop-only-element slideimg cursoreffect absolute -bottom-[2vw] left-1/2 -translate-x-1/2 w-[13rem] h-[13rem] overflow-hidden lg:opacity-100 opacity-0">
             <img src="/assets/town-team-logo.png" alt="Town Team logo">
           </div>
-        </div>
-
-        <!-- Slide 2: Cairo's Finest Since 1998 -->
-        <div class="slide2">
-          <div class="slide-header cursoreffect">
-            <h1>Cairo's</h1>
-            <h1 class="slide-accent"> Finest</h1>
-            <img src="/assets/gap2.webp" class="slide-badge-img" alt="Cairo finest">
-            <h1>Since 1998</h1>
+          <div data-scroll data-scroll-speed=".2"
+            class="desktop-only-element slidevideo cursoreffect absolute lg:bottom-[3vw] lg:left-[10vw] bottom-0 left-0 lg:w-[17rem] lg:h-[17rem] w-full h-1/2 overflow-hidden">
+            <video autoplay loop muted playsinline preload="metadata" poster="/videos/style-in-motion-poster.webp" class="w-full h-full object-cover">
+              <source media="(max-width: 768px)" src="/videos/style-in-motion-mobile.mp4" type="video/mp4">
+              <source src="/videos/style-in-motion.mp4" type="video/mp4">
+            </video>
           </div>
 
-          <div class="slide2-mobile-container">
-            <div class="slide2-center-content">
-              <h1 class="slide2-est-title">Established</h1>
-              <h1 class="slide2-year">1998</h1>
-              <h1 class="slide2-modern-title">Designed for modern life</h1>
+          <!-- Mobile / Tablet Only Elements (< 1024px) -->
+          <div class="mobile-only-element slide-mobile-text">
+            <h2>Seasonless casualwear for year-round wear</h2>
+            <p class="text-muted">Comfortable layers that move with your life</p>
+          </div>
+          <div class="mobile-only-element slide-media-grid">
+            <div class="slide-media-card cursoreffect">
+              <img src="/assets/model.webp" alt="Textured campaign detail" width="2048" height="2048" loading="lazy" decoding="async">
             </div>
-
-            <div class="slide2-media-showcase">
-              <div data-scroll data-scroll-speed=".2" class="slide2-img-left cursoreffect">
-                <img src="/assets/seaside-look-editorial.webp" alt="Town Team seaside look">
-              </div>
-              <div data-scroll data-scroll-speed=".2" class="slide2-video-bottom-right cursoreffect">
-                <video autoplay loop muted playsinline src="/videos/seasonal-collection-film.mp4"></video>
-              </div>
+            <div class="slide-media-card cursoreffect">
+              <video autoplay loop muted playsinline preload="metadata" poster="/videos/style-in-motion-poster.webp">
+                <source src="/videos/style-in-motion-mobile.mp4" type="video/mp4">
+                <source src="/videos/style-in-motion.mp4" type="video/mp4">
+              </video>
             </div>
           </div>
-
-          <!-- Extra floating images on desktop -->
-          <div data-scroll data-scroll-speed=".3" class="slide2-img-kids cursoreffect">
-            <img src="/assets/kids-streetwear-editorial.webp" alt="Town Team kids streetwear editorial">
-          </div>
-          <div data-scroll data-scroll-speed=".2" class="slide2-img-top-right cursoreffect">
-            <img src="/assets/city-overshirt-editorial.webp" alt="Town Team overshirt editorial">
+          <div class="mobile-only-element slide-mobile-text">
+            <h2>Versatile pieces for work and weekends</h2>
+            <p class="text-muted">Effortless style that's unmistakably you</p>
           </div>
         </div>
 
-        <!-- Slide 3: Shop With Confidence Every Time -->
-        <div class="slide3">
-          <div class="slide-header cursoreffect">
-            <h1>Shop With</h1>
-            <h1 class="slide-accent"> Confidence</h1>
-            <img src="/assets/gap3.webp" class="slide-badge-img" alt="Shop with confidence">
-            <h1>Every Time</h1>
+        <div class="slide2 w-full lg:h-screen pt-20 flex flex-col gap-5 relative items-center px-3">
+          <!-- Slide 2 Header (Universal) -->
+          <div class="slide-header cursoreffect text-center lg:text-5xl font-semibold pb-3"
+            style="border-bottom: 2px solid var(--color-border); font-family: var(--font-display); line-height: 1.2;">
+            <h1 style="margin: 0; padding: 0;">Cairo's</h1>
+            <h1 style="margin: 0; padding: 0; color: var(--color-accent); font-style: italic;"> Finest</h1>
+            <img src="/assets/gap2.webp" class="w-12 sm:w-16 lg:w-20 mx-2 sm:mx-3 lg:mx-5 rounded-none" alt="" width="80" height="62" loading="lazy" decoding="async">
+            <h1 style="margin: 0; padding: 0;">Since 1998</h1>
           </div>
 
-          <div class="slide3-mobile-container">
-            <div class="slide3-center-content">
-              <h1 class="slide3-pillar-text">Cash on Delivery</h1>
-              <h1 class="slide3-pillar-text">Nationwide Shipping</h1>
-              <h1 class="slide3-days">14 Days</h1>
-              <h1 class="slide3-pillar-text">Easy Returns</h1>
-            </div>
+          <!-- Desktop Only Elements (Preserved 100% as original) -->
+          <div
+            class="desktop-only-element slideelem absolute z-[2] mix-blend-difference top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-5 flex flex-col justify-center gap-5">
+            <h1 class="text-4xl tracking-wider text-center" style="font-family: var(--font-display);">Established</h1>
+            <h1 class="text-6xl text-center font-semibold"
+              style="color: var(--color-accent); font-family: priestacy; font-weight: 700;">1998</h1>
+            <h1 class="text-4xl tracking-wider text-center" style="font-family: var(--font-display);">Designed for modern life</h1>
+          </div>
+          <div data-scroll data-scroll-speed=".2"
+            class="desktop-only-element slideimg cursoreffect lg:absolute top-[20vh] left-[5rem] w-[13rem] h-2/3 opacity-0 lg:opacity-100">
+            <img src="/assets/seaside-look-editorial.webp" alt="Town Team seaside look" width="1000" height="2000" loading="lazy" decoding="async">
+          </div>
+          <div data-scroll data-scroll-speed=".3"
+            class="desktop-only-element slideimg cursoreffect absolute -bottom-[2vw] left-1/2 -translate-x-1/2 w-[15rem] h-[13rem] overflow-hidden lg:opacity-100 opacity-0">
+            <img src="/assets/kids-streetwear-editorial.webp" alt="Town Team kids streetwear editorial" width="1600" height="2000" loading="lazy" decoding="async">
+          </div>
+          <div data-scroll data-scroll-speed=".2"
+            class="desktop-only-element slideimg cursoreffect lg:absolute top-0 right-[5rem] w-[17rem] h-[17rem]">
+            <img src="/assets/city-overshirt-editorial.webp" alt="Town Team overshirt editorial" width="2000" height="2000" loading="lazy" decoding="async">
+          </div>
+          <div data-scroll data-scroll-speed=".2"
+            class="desktop-only-element slideimg cursoreffect lg:absolute bottom-0 right-[5rem] w-[17rem] h-[17rem] lg:opacity-100 opacity-0">
+            <video autoplay loop muted playsinline preload="metadata" poster="/videos/seasonal-collection-film-poster.webp" class="w-full h-full object-cover">
+              <source media="(max-width: 768px)" src="/videos/seasonal-collection-film-mobile.mp4" type="video/mp4">
+              <source src="/videos/seasonal-collection-film.mp4" type="video/mp4">
+            </video>
+          </div>
 
-            <div class="slide3-media-showcase">
-              <div data-scroll data-scroll-speed=".2" class="slide3-img-top-left cursoreffect">
-                <img src="/assets/teen-campaign-editorial.webp" alt="Town Team teen collection editorial">
-              </div>
-              <div data-scroll data-scroll-speed=".2" class="slide3-video-bottom-right cursoreffect">
-                <video autoplay loop muted playsinline src="/videos/seasonal-collection-film.mp4"></video>
-              </div>
+          <!-- Mobile / Tablet Only Elements (< 1024px) -->
+          <div class="mobile-only-element slide-centerpiece">
+            <img src="/assets/town-team-logo.png" alt="Town Team" class="w-14 sm:w-20 mb-1 object-contain" width="80" height="80">
+            <h2 class="cp-title">Established</h2>
+            <div class="cp-accent">1998</div>
+            <p class="cp-title text-muted text-sm sm:text-base">Designed for modern life</p>
+          </div>
+          <div class="mobile-only-element slide-media-grid">
+            <div class="slide-media-card cursoreffect">
+              <img src="/assets/seaside-look-editorial.webp" alt="Town Team seaside look" width="1000" height="2000" loading="lazy" decoding="async">
+            </div>
+            <div class="slide-media-card cursoreffect">
+              <img src="/assets/city-overshirt-editorial.webp" alt="Town Team overshirt editorial" width="2000" height="2000" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+
+        <div class="slide3 w-full lg:h-screen pt-20 flex items-center flex-col gap-5 relative px-3">
+          <!-- Slide 3 Header (Universal) -->
+          <div class="slide-header cursoreffect text-center lg:text-5xl font-semibold pb-3"
+            style="border-bottom: 2px solid var(--color-border); font-family: var(--font-display); line-height: 1.2;">
+            <h1 style="margin: 0; padding: 0;">Shop With</h1>
+            <h1 style="margin: 0; padding: 0; color: var(--color-accent); font-style: italic;"> Confidence</h1>
+            <img src="/assets/gap3.webp" class="w-12 sm:w-16 lg:w-20 mx-2 sm:mx-3 lg:mx-5 rounded-none" alt="" width="80" height="50" loading="lazy" decoding="async">
+            <h1 style="margin: 0; padding: 0;">Every Time</h1>
+          </div>
+
+          <!-- Desktop Only Elements (Preserved 100% as original) -->
+          <div
+            class="desktop-only-element slideelem absolute z-[2] mix-blend-difference top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center gap-4">
+            <h1 class="text-4xl tracking-wider text-center" style="font-family: var(--font-display);">Cash on Delivery</h1>
+            <h1 class="text-4xl tracking-wider text-center" style="font-family: var(--font-display);">Nationwide Shipping</h1>
+            <h1 class="text-6xl font-semibold text-center"
+              style="color: var(--color-accent); font-family: priestacy; font-weight: 700;">14 Days</h1>
+            <h1 class="text-4xl tracking-wider text-center" style="font-family: var(--font-display);">Easy Returns</h1>
+          </div>
+          <div data-scroll data-scroll-speed=".2"
+            class="desktop-only-element slideimg cursoreffect lg:absolute top-[5rem] left-[3rem] w-[20rem] h-[20rem] lg:opacity-100 opacity-0">
+            <img src="/assets/teen-campaign-editorial.webp" alt="Town Team teen collection editorial" width="1080" height="1080" loading="lazy" decoding="async">
+          </div>
+          <div data-scroll data-scroll-speed=".2"
+            class="desktop-only-element slideimg cursoreffect lg:absolute bottom-[5rem] right-[3rem] w-[20rem] h-[20rem]">
+            <video autoplay loop muted playsinline preload="metadata" poster="/videos/seasonal-collection-film-poster.webp" class="w-full h-full object-cover">
+              <source media="(max-width: 768px)" src="/videos/seasonal-collection-film-mobile.mp4" type="video/mp4">
+              <source src="/videos/seasonal-collection-film.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <!-- Mobile / Tablet Only Elements (< 1024px) -->
+          <div class="mobile-only-element slide-centerpiece">
+            <h2 class="cp-title">Cash on Delivery</h2>
+            <h2 class="cp-title text-muted">Nationwide Shipping</h2>
+            <div class="cp-accent">14 Days</div>
+            <p class="cp-title text-muted">Easy Returns</p>
+          </div>
+          <div class="mobile-only-element slide-media-grid">
+            <div class="slide-media-card cursoreffect">
+              <img src="/assets/teen-campaign-editorial.webp" alt="Town Team teen collection editorial" width="1080" height="1080" loading="lazy" decoding="async">
+            </div>
+            <div class="slide-media-card cursoreffect">
+              <video autoplay loop muted playsinline preload="metadata" poster="/videos/seasonal-collection-film-poster.webp">
+                <source src="/videos/seasonal-collection-film-mobile.mp4" type="video/mp4">
+                <source src="/videos/seasonal-collection-film.mp4" type="video/mp4">
+              </video>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="footer w-full px-5 py-8 sm:px-8 sm:py-12 md:px-12 md:py-16 overflow-hidden" style="color: var(--color-text-primary);">
+      <footer class="w-full max-w-[1800px] mx-auto">
+        <div class="main-footer w-full">
+          <!-- Top Framing Line & Brand -->
+          <div class="first w-full flex items-center gap-3 sm:gap-4 lg:gap-[1.5vw] py-3 sm:py-5 lg:py-6">
+            <h1 id="logo" class="footer-brand font-[priestacy]">TOWN<br>TEAM</h1>
+            <div class="line flex-1 flex items-center">
+              <div class="footer-divider-line"></div>
+            </div>
+          </div>
 
-    <div class="footer" style="color: var(--color-text-primary);">
-      <footer>
-        <div class="main-footer">
-          <div class="first">
-            <h1 id="logo">TOWN TEAM</h1>
-            <div class="line">
-              <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <path d="M -400,50 Q 0,50 500,50" fill="none" stroke="var(--color-text-primary)" stroke-width="2" />
-              </svg>
+          <!-- Main Navigation Columns (Fully Responsive Grid) -->
+          <div class="upper-footer w-full grid grid-cols-2 md:grid-cols-2 lg:flex lg:gap-[9rem] gap-8 sm:gap-12 my-8 sm:my-10 lg:my-14">
+            <div class="left-up flex flex-col gap-3 sm:gap-4">
+              <span class="text-[11px] sm:text-xs uppercase tracking-[0.2em] text-zinc-500 font-semibold mb-1 block">Collection</span>
+              <a href="https://townteam.com/pages/about-town-team" target="_blank" rel="noreferrer"
+                class="footer-link text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wide">Our Story</a>
+              <a href="https://townteam.com/" target="_blank" rel="noreferrer"
+                class="footer-link text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wide">Shop Collection</a>
+              <a href="#campaigns" class="footer-link text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wide">Latest Drops</a>
+              <a href="#collections" class="footer-link text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wide">Featured Campaigns</a>
+              <a href="https://townteam.com/" target="_blank" rel="noreferrer"
+                class="footer-link text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wide">Men's Wear</a>
+              <a href="https://townteam.com/" target="_blank" rel="noreferrer"
+                class="footer-link text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wide">Teen Collection</a>
+            </div>
+            <div class="right-up flex flex-col gap-3 sm:gap-4">
+              <span class="text-[11px] sm:text-xs uppercase tracking-[0.2em] text-zinc-500 font-semibold mb-1 block">Customer Care</span>
+              <a href="https://townteam.com/pages/contact-us" target="_blank" rel="noreferrer"
+                class="footer-link text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wide">Customer Care</a>
+              <a href="https://townteam.com/pages/delivery-and-returns" target="_blank" rel="noreferrer"
+                class="footer-link text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wide">Delivery &amp; Returns</a>
+              <a href="https://townteam.com/pages/town-team-terms-and-condition" target="_blank" rel="noreferrer"
+                class="footer-link text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wide">Terms &amp; Conditions</a>
+              <a href="https://townteam.com/pages/contact-us" target="_blank" rel="noreferrer"
+                class="footer-link text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wide">Get in Touch</a>
+              <a href="tel:16579" class="footer-link text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wide">Hotline: 16579</a>
+              <a href="#shopping" class="footer-link text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wide">Payment Options</a>
+              <a href="https://townteam.com/" target="_blank" rel="noreferrer"
+                class="footer-link text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wide">Explore Now</a>
             </div>
           </div>
-          
-          <div class="upper-footer">
-            <div class="left-up">
-              <a href="https://townteam.com/pages/about-town-team" target="_blank" rel="noreferrer" class="footer-link">Our Story</a>
-              <a href="https://townteam.com/" target="_blank" rel="noreferrer" class="footer-link">Shop Collection</a>
-              <a href="#campaigns" class="footer-link">Latest Drops</a>
-              <a href="#collections" class="footer-link">Featured Campaigns</a>
-              <a href="https://townteam.com/" target="_blank" rel="noreferrer" class="footer-link">Men's Wear</a>
-              <a href="https://townteam.com/" target="_blank" rel="noreferrer" class="footer-link">Teen Collection</a>
-            </div>
-            <div class="right-up">
-              <a href="https://townteam.com/pages/contact-us" target="_blank" rel="noreferrer" class="footer-link">Customer Care</a>
-              <a href="https://townteam.com/pages/delivery-and-returns" target="_blank" rel="noreferrer" class="footer-link">Delivery &amp; Returns</a>
-              <a href="https://townteam.com/pages/town-team-terms-and-condition" target="_blank" rel="noreferrer" class="footer-link">Terms &amp; Conditions</a>
-              <a href="https://townteam.com/pages/contact-us" target="_blank" rel="noreferrer" class="footer-link">Get in Touch</a>
-              <a href="tel:16579" class="footer-link">16579</a>
-              <a href="#shopping" class="footer-link">Payment Options</a>
-              <a href="https://townteam.com/" target="_blank" rel="noreferrer" class="footer-link">Explore Now</a>
+
+          <!-- Social Media Row -->
+          <div class="mid-footer w-full flex flex-wrap items-center gap-5 sm:gap-6 lg:gap-8 my-4 sm:my-6 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
+            <div class="first-child flex flex-wrap items-center gap-5 sm:gap-6 lg:gap-8">
+              <a href="https://www.tiktok.com/@townteam98" target="_blank" rel="noreferrer"
+                class="footer-link cursoreffect">TikTok</a>
+              <a href="https://www.youtube.com/@TOWNTEAM" target="_blank" rel="noreferrer"
+                class="footer-link cursoreffect">YouTube</a>
+              <a href="https://www.facebook.com/townteam" target="_blank" rel="noreferrer"
+                class="footer-link cursoreffect">Facebook</a>
+              <a href="https://www.instagram.com/townteam/" target="_blank" rel="noreferrer"
+                class="footer-link cursoreffect">Instagram</a>
             </div>
           </div>
-          
-          <div class="mid-footer">
-            <div class="first-child">
-              <a href="https://www.tiktok.com/@townteam98" target="_blank" rel="noreferrer" class="footer-link cursoreffect">TikTok</a>
-              <a href="https://www.youtube.com/@TOWNTEAM" target="_blank" rel="noreferrer" class="footer-link cursoreffect">YouTube</a>
-              <a href="https://www.facebook.com/townteam" target="_blank" rel="noreferrer" class="footer-link cursoreffect">Facebook</a>
-              <a href="https://www.instagram.com/townteam/" target="_blank" rel="noreferrer" class="footer-link cursoreffect">Instagram</a>
+
+          <!-- Bottom Framing Line & Stay Connected -->
+          <div class="lower-footer w-full flex items-center gap-3 sm:gap-4 lg:gap-[1.5vw] py-3 sm:py-5 lg:py-6">
+            <div class="line flex-1 flex items-center">
+              <div class="footer-divider-line"></div>
             </div>
-            <div class="second-child footer-follow-desktop">
-              <p class="footer-follow">Stay Connected</p>
-            </div>
+            <p class="footer-stay-connected font-[priestacy]">Stay Connected</p>
           </div>
-          
-          <div class="lower-footer">
-            <div class="line">
-              <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <path d="M -400,50 Q 0,50 500,50" fill="none" stroke="var(--color-text-primary)" stroke-width="2" />
-              </svg>
-            </div>
-            <p class="footer-follow footer-follow-mobile">Stay Connected</p>
+
+          <!-- Brand Monument -->
+          <div class="end w-full flex justify-center items-center my-6 sm:my-8 lg:my-12 overflow-hidden">
+            <h5 class="text-[12vw] sm:text-[13vw] md:text-[14vw] font-semibold font-[piximisa] tracking-wider whitespace-nowrap select-none">TOWN TEAM</h5>
           </div>
-          
-          <div class="end">
-            <h5>TOWN TEAM</h5>
-          </div>
-          
+
           <!-- Developer Credit -->
-          <div class="developer-credit">
-            <p>
-              &copy; <span id="current-year">2026</span> <a href="https://github.com/aanasmahfouz" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; font-weight: 500; transition: color 0.25s ease;">Anas Mahfouz</a>. All rights reserved.
+          <div class="developer-credit w-full flex justify-center items-center py-6 sm:py-8 border-t"
+            style="border-color: var(--color-border);">
+            <p class="text-xs sm:text-sm tracking-wide opacity-60 text-center"
+              style="color: var(--color-text-primary); font-family: var(--font-body);">
+              &copy; <span id="current-year">2026</span> <a href="https://github.com/aanasmahfouz"
+                target="_blank" rel="noopener noreferrer" class="footer-link"
+                style="display: inline; color: var(--color-accent); text-decoration: none; transition: opacity 0.3s ease;">Anas Mahfouz</a>.
+              All rights reserved.
             </p>
           </div>
         </div>
@@ -511,9 +649,34 @@
     </div>
   </div>
 
-  <!-- Master Application Script -->
-  <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/src/scripts/script.js"></script>
+  <script type="module" src="/src/scripts/three.js"></script>
+
+  <!-- Town Team Components Scripts (load after Three.js) -->
+  <script type="module" src="/src/scripts/town-team-navigation.js"></script>
+  <script type="module" src="/src/scripts/town-team-hero.js"></script>
+
+
+
+  <!-- Update copyright year -->
+  <script>
+    const currentYear = new Date().getFullYear();
+    document.getElementById('current-year').textContent = currentYear;
+
+    // Update menu year too
+    const menuYear = document.querySelector('.menu-year');
+    if (menuYear) {
+      menuYear.textContent = currentYear;
+    }
+  </script>
 
 </body>
+
+</html>
+
+
+</html>
+
+</html>
 
 </html>

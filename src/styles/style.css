@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import url('./philosophy-section.css');
+@import url('./shopping-section.css');
 
 @tailwind base;
 @tailwind components;
@@ -9,23 +9,28 @@
 @font-face {
   font-family: "orbitron";
   src: url(/fonts/hkgroteskwide-bold.otf);
+  font-display: swap;
 }
 
 @font-face {
   font-family: "piximisa";
   src: url(/fonts/Piximisa.ttf);
+  font-display: swap;
 }
 @font-face {
   font-family: "priestacy";
   src: url(/fonts/Priestacy.otf);
+  font-display: swap;
 }
 @font-face {
   font-family: "hkgroteskwide-bold";
   src: url(/fonts/hkgroteskwide-bold.otf);
+  font-display: swap;
 }
 @font-face {
   font-family: "orbitron-VariableFont_wght";
   src: url(/fonts/Orbitron-VariableFont_wght.ttf);
+  font-display: swap;
 }
 
 /* Modern Color System */
@@ -63,33 +68,109 @@
   --border-radius-lg: 24px;
 }
 
-/* Base Typography & Global Scrollbar Normalization */
-html,
-body,
-.main {
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
+/* ============================================================
+   Luxury Fluid Scrollbar & High-End UI/UX Experience
+   ============================================================ */
+
+/* 1. Base Document Flow - Seamless Edge-to-Edge (Zero Gutter Reservation) */
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
-html::-webkit-scrollbar,
-body::-webkit-scrollbar,
-.main::-webkit-scrollbar {
+body {
+  overflow-x: hidden;
+}
+
+/* 2. Desktop Floating Overlay Scrollbar (>= 1024px) */
+@media (min-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 9999px;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent, #e8ff6c);
+    box-shadow: 0 0 10px rgba(232, 255, 108, 0.5);
+  }
+}
+
+/* 3. Mobile & Touch Screen Scrollbar - Completely Hidden for Native Touch UI/UX (< 1024px) */
+@media (max-width: 1023px), (pointer: coarse) {
+  html,
+  body {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  ::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+}
+
+/* 4. Overlay & Loading Lock States (Menu Open / Site Loading) */
+html.loading-lock,
+body.loading-lock,
+html.aura-menu-open,
+body.aura-menu-open {
+  overflow: hidden !important;
+  scrollbar-width: none !important;
+  touch-action: none;
+}
+
+html.loading-lock::-webkit-scrollbar,
+body.loading-lock::-webkit-scrollbar,
+html.aura-menu-open::-webkit-scrollbar,
+body.aura-menu-open::-webkit-scrollbar {
   display: none !important;
   width: 0 !important;
   height: 0 !important;
 }
 
+/* 5. Luxury Global Scroll Progress Bar (Top-Edge HUD Indicator) */
+.global-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2.5px;
+  background: linear-gradient(90deg, #e8ff6c 0%, #ffffff 100%);
+  box-shadow: 0 0 12px rgba(232, 255, 108, 0.8), 0 0 4px rgba(232, 255, 108, 0.4);
+  z-index: 99999;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+html.loading-lock .global-scroll-progress,
+html.aura-menu-open .global-scroll-progress,
+body.aura-menu-open .global-scroll-progress {
+  opacity: 0 !important;
+}
+
+/* Base Typography */
 body {
   font-family: var(--font-body);
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -0.01em;
-}
-
-.main {
-  overflow-x: clip !important;
-  overflow-y: visible !important;
 }
 
 /* Default heading styles - can be overridden by specific component classes */
@@ -99,125 +180,11 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-/* ============================================
-   About / Philosophy Section Styling
-   Responsive from 300px to 4K displays
-   ============================================ */
-.about {
-  width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  background: var(--color-background);
-  padding: clamp(3rem, 7vh, 6rem) clamp(1rem, 3.5vw, 2.5rem);
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-.aboutcontent {
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(1.25rem, 3.5vh, 2.75rem);
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.abouthead {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 100%;
-}
-
-.abouthead h1 {
-  font-family: var(--font-brand), 'Space Grotesk', sans-serif;
+/* Specific section heading styles */
+.abouthead h1{
+  font-family: var(--font-brand);
   font-weight: 700;
-  text-transform: uppercase;
-  color: var(--color-text-primary);
-  margin: 0;
-  padding: 0;
-  line-height: 1.1;
-  text-align: center;
-  white-space: nowrap;
-  font-size: clamp(2.1rem, min(8.5vw, 8vh), 5.5rem);
-  letter-spacing: clamp(0.02em, 0.5vw, 0.08em);
-}
-
-.abouthead-team {
-  color: var(--color-primary);
-  -webkit-text-stroke: 2px var(--color-text-primary);
-  text-stroke: 2px var(--color-text-primary);
-  paint-order: stroke fill;
-  font-weight: 700;
-}
-
-@media (max-width: 360px) {
-  .abouthead h1 {
-    font-size: clamp(1.75rem, 8vw, 2.1rem);
-    letter-spacing: 0.01em;
-  }
-  
-  .abouthead-team {
-    -webkit-text-stroke: 1.5px var(--color-text-primary);
-    text-stroke: 1.5px var(--color-text-primary);
-  }
-}
-
-.para-effect {
-  font-family: var(--font-body), 'Inter', sans-serif !important;
-  font-weight: 300 !important;
-  color: var(--color-text-primary) !important;
-  opacity: 0.88 !important;
-  text-align: center !important;
-  letter-spacing: -0.01em !important;
-  margin: 0 auto !important;
-  width: 100% !important;
-  max-width: min(92vw, 1100px) !important;
-  padding: 0 clamp(0.5rem, 2.5vw, 2rem) !important;
-  box-sizing: border-box !important;
-  font-size: clamp(1.05rem, min(3.8vw, 2.8vh), 1.35rem) !important;
-  line-height: clamp(1.5, 3vh, 1.65) !important;
-  word-wrap: break-word !important;
-  overflow-wrap: break-word !important;
-}
-
-@media (min-width: 480px) {
-  .para-effect {
-    max-width: min(88vw, 1100px) !important;
-    font-size: clamp(1.25rem, min(3.5vw, 3.2vh), 1.65rem) !important;
-  }
-}
-
-@media (min-width: 768px) {
-  .para-effect {
-    max-width: min(84vw, 1100px) !important;
-    font-size: clamp(1.5rem, min(2.8vw, 3.5vh), 2rem) !important;
-  }
-}
-
-@media (min-width: 1024px) {
-  .para-effect {
-    max-width: min(78vw, 1200px) !important;
-    font-size: clamp(1.85rem, min(2.2vw, 3.8vh), 2.35rem) !important;
-    line-height: 1.55 !important;
-  }
-}
-
-@media (min-width: 1440px) {
-  .para-effect {
-    max-width: 1250px !important;
-    font-size: 2.35rem !important;
-  }
+  letter-spacing: -0.015em;
 }
 
 .products-wrapper h1{
@@ -229,7 +196,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
 }
 
-img{
+img, video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -306,6 +273,12 @@ img{
   transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  .overlay:hover {
+    opacity: 1;
+  }
+}
+
 .herotext h1{
   font-family: var(--font-brand);
   font-weight: 700;
@@ -315,6 +288,12 @@ img{
 .cardimg{
   filter: grayscale(0.3);
   transition: filter 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  .cardimg:hover {
+    filter: grayscale(0);
+  }
 }
 
 .foottext-wrap span {
@@ -346,58 +325,10 @@ img{
   transition: color 0.25s ease, transform 0.25s ease;
 }
 
-/* ============================================
-   Desktop Hover Effects Only (> 1024px)
-   Disabled on touch, mobile, and tablet screens
-   ============================================ */
-@media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
-  .overlay:hover {
-    opacity: 1;
-  }
-
-  .cardimg:hover {
-    filter: grayscale(0);
-  }
-
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
   .footer-link:hover {
     color: var(--color-text-primary);
     transform: translateX(6px);
-  }
-}
-
-/* Explicitly disable all hover and cursor effects on screens <= 1024px */
-@media (max-width: 1024px) {
-  .cursor {
-    display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-  }
-
-  .overlay,
-  .overlay:hover {
-    opacity: 0 !important;
-    pointer-events: none !important;
-  }
-
-  .cardimg,
-  .cardimg:hover {
-    filter: grayscale(0) !important;
-    transform: none !important;
-  }
-
-  .footer-link,
-  .footer-link:hover {
-    transform: none !important;
-  }
-}
-
-/* Touch & Mobile Performance Optimizations */
-@media (hover: none) or (pointer: coarse), (max-width: 1024px) {
-  *,
-  *::before,
-  *::after {
-    -webkit-tap-highlight-color: transparent;
   }
 }
 
@@ -406,6 +337,36 @@ img{
   color: var(--color-text-secondary);
   font-weight: 400;
 }
+
+/* Footer Horizontal Line & Brand Signature */
+.footer-divider-line {
+  height: 1px;
+  background-color: var(--color-text-primary);
+  width: 100%;
+  opacity: 0.85;
+}
+
+.footer-brand {
+  font-family: "priestacy", sans-serif;
+  color: var(--color-text-primary);
+  font-size: clamp(1.25rem, 1.8vw, 2.1rem);
+  line-height: 0.85;
+  letter-spacing: 0.04em;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.footer-stay-connected {
+  font-family: "priestacy", sans-serif;
+  color: var(--color-text-primary);
+  font-size: clamp(1.25rem, 1.8vw, 2.1rem);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  user-select: none;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
 
 @keyframes animate {
   0%,
@@ -418,6 +379,10 @@ img{
 }
 
 @media(max-width:426px) {
+  .mobilefoot{
+    display: flex;
+  }
+  
   .video-progress-indicator {
     bottom: 1rem;
   }
@@ -487,4 +452,124 @@ img{
   .timeline-sub-text {
     font-size: clamp(0.875rem, 3vw, 1.125rem) !important;
   }
+}
+
+/* Capability-Aware Mobile, Small Screen & Touch Optimizations */
+@media (max-width: 1024px), (hover: none), (pointer: coarse) {
+  /* Prevent any hover transforms or sticky states across elements */
+  *:hover {
+    transform: none !important;
+  }
+
+  /* Custom mouse follower cursor is disabled */
+  .cursor {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  .cursoreffect {
+    cursor: auto !important;
+  }
+
+  /* Overlays on products / lookbook disabled on hover */
+  .overlay,
+  .overlay:hover {
+    opacity: 0 !important;
+    display: none !important;
+    pointer-events: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Image grayscale / hover filter transitions disabled */
+  .cardimg,
+  .cardimg:hover {
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Navigation hover effects disabled */
+  .aura-nav-logo:hover {
+    transform: none !important;
+  }
+
+  .aura-nav-link:hover {
+    color: inherit !important;
+  }
+
+  .aura-nav-link::after,
+  .aura-nav-link:hover::after {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+  }
+
+  .aura-nav-cta-btn:hover {
+    background: transparent !important;
+    border-color: #FFFFFF !important;
+    transform: none !important;
+  }
+
+  .aura-nav-cta-btn:hover svg {
+    transform: none !important;
+  }
+
+  .aura-nav-menu-btn:hover {
+    background: transparent !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  #aura-navigation.menu-open .aura-nav-menu-btn:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .aura-nav-menu-btn:hover svg {
+    transform: none !important;
+  }
+
+  /* Menu items hover disabled */
+  .aura-menu-item:hover {
+    font-style: normal !important;
+    transform: none !important;
+  }
+
+  .aura-menu-social-link:hover {
+    opacity: 0.4 !important;
+  }
+
+  /* Philosophy section hover disabled */
+  .philosophy-headline:hover .emphasis,
+  .philosophy-headline:hover .emphasis-secondary {
+    opacity: 1 !important;
+  }
+
+  /* Footer link hover translate / color flicker disabled */
+  .footer-link:hover {
+    transform: none !important;
+    color: var(--color-text-muted) !important;
+  }
+
+  /* Text effect span animations */
+  .text-effect:hover span {
+    transform: none !important;
+  }
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* GPU Performance & Will-Change optimization */
+.frame-scroll-wrap {
+  contain: paint layout;
 }

@@ -83,8 +83,9 @@ Rather than static product grids, this showcase immerses users into the brand's 
 - **Strict Razor-Sharp Border Styling:** Enforces `border-radius: 0 !important` across all philosophy imagery (`.contentimg`), upholding high-fashion brutalist/editorial aesthetic standards.
 - **Responsive Staggered Editorial Duo:** Desktop delivers an expansive dual-card offset layout (>1024px); mobile dynamically transforms into an asymmetric staggered duo (<=1024px), ensuring visual continuity without hiding brand campaign imagery.
 
-### 5. Dual-Axis Scrollbar Isolation
-- **Clip Overflow Protection:** Replaced destructive `overflow-x: hidden` with modern `overflow-x: clip; overflow-y: visible;` across nested containers, eliminating inadvertent secondary scrollbars on touch devices while preserving sticky and fixed coordinates.
+### 6. Mobile & Small Screen Hover Disablement for Maximum Performance
+- **Zero Sticky Hover Bugs:** Automatically disables all hover effects, hover transitions, and sticky pseudo-states on small screens (`<= 1024px`) and touch devices (`pointer: coarse`).
+- **Battery & GPU Savings:** Halts cursor tracking, mousemove parallax, and interactive hover transformations on mobile viewports to ensure smooth 60 FPS touch scrolling without unnecessary repaints.
 
 ---
 
@@ -96,37 +97,26 @@ town-team/
 │   └── assets/                    # High-res repository banners & preview screenshots
 ├── public/
 │   ├── assets/                    # Optimized WebP imagery & branding graphics
-│   ├── fonts/                     # Self-hosted typography (Syne, Space Grotesk, Inter)
+│   ├── fonts/                     # Self-hosted typography (Syne, Space Grotesk, Inter, Priestacy)
 │   ├── lookbook-frames/           # 421 optimized lookbook canvas animation frames
 │   └── videos/                    # Brand campaign cinematic loops
 ├── src/
-│   ├── components/
-│   │   ├── heroSection.js         # Kinetic hero typography & mouse tracker
-│   │   ├── navigation.js          # Fullscreen editorial overlay navigation
-│   │   ├── lookbookCanvas.js      # 60 FPS canvas frame-scrubber engine
-│   │   ├── menuHoverImages.js     # Nav item floating cursor preview cards
-│   │   ├── productsAnimation.js   # 3D tilt perspective product card controller
-│   │   └── textEffects.js         # Typography & text animation orchestrator
-│   ├── core/
-│   │   └── scroll.js              # Lenis smooth scroll engine & GSAP sync
-│   ├── effects/
-│   │   ├── cursor.js              # Interactive magnetic cursor follower
-│   │   ├── splitText.js           # Vanilla DOM text splitter for animations
-│   │   └── textPressure.js        # Syne variable font pressure effects
-│   ├── loader/
-│   │   ├── assetTracker.js        # True media loading & asset tracking
-│   │   └── curtainReveal.js       # Staged dual-curtain introduction sequence
-│   ├── styles/
-│   │   ├── hero-section.css       # Hero typography & lighting effects
-│   │   ├── navigation.css         # Responsive navigation drawer styling
-│   │   ├── curtain-reveal.css     # Curtain animation layers
-│   │   ├── footer.css             # Fluid typography & responsive footer grid
-│   │   ├── philosophy-section.css # Editorial zero-radius staggered layouts
-│   │   ├── shopping-section.css   # Product carousel & 3D cards
-│   │   └── style.css              # Design tokens, reset, & color palette
-│   ├── utils/
-│   │   └── cacheManager.js        # Memory-safe asset cache utilities
-│   └── main.js                    # Orchestrator & master application entry point
+│   ├── scripts/
+│   │   ├── script.js              # Core orchestration, scroll triggers & product animations
+│   │   ├── three.js               # Three.js 3D model engine with capability-aware tracking
+│   │   ├── town-team-hero.js      # Hero typography & desktop mouse parallax
+│   │   ├── town-team-navigation.js# Fullscreen luxury overlay navigation
+│   │   ├── curtain-reveal.js      # Dual-curtain wipe reveal introduction
+│   │   ├── splitText.js           # Kinetic typography & character splitter
+│   │   ├── textPressure.js        # Dynamic variable font pressure effect
+│   │   └── menu-hover-images.js   # Dynamic menu background image switching
+│   └── styles/
+│       ├── style.css              # Global tokens, reset, typography & mobile optimizations
+│       ├── town-team-hero.css     # Hero typography & lighting effects
+│       ├── town-team-navigation.css# Responsive navigation & menu drawer
+│       ├── curtain-reveal.css     # Curtain animation layers
+│       ├── philosophy-section.css # Editorial zero-radius layouts
+│       └── shopping-section.css   # Product carousel & responsive cards
 ├── index.html                     # Semantic HTML5 template with complete SEO/OG metadata
 ├── package.json                   # Project manifests & dependencies
 ├── vite.config.js                 # Rollup chunk optimization & Vite configuration

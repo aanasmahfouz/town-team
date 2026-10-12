@@ -1,0 +1,809 @@
+/* Aura Journal Hero Section & Navigation Styles */
+/* Converted from Next.js/Tailwind to vanilla CSS */
+
+/* ============================================
+   CSS Custom Properties (Color System)
+   ============================================ */
+:root {
+  /* Town Team Color System - Dark Theme */
+  --aura-background: hsl(0, 0%, 0%); /* Black background */
+  --aura-foreground: hsl(0, 0%, 100%); /* White text */
+  --aura-card: hsl(0, 0%, 5%);
+  --aura-card-foreground: hsl(0, 0%, 100%);
+  --aura-popover: hsl(0, 0%, 5%);
+  --aura-popover-foreground: hsl(0, 0%, 100%);
+  --aura-primary: hsl(0, 0%, 0%); /* Black for menu overlay */
+  --aura-primary-foreground: hsl(0, 0%, 100%);
+  --aura-secondary: hsl(0, 0%, 10%);
+  --aura-secondary-foreground: hsl(0, 0%, 100%);
+  --aura-muted: hsl(0, 0%, 15%);
+  --aura-muted-foreground: hsl(0, 0%, 64%);
+  --aura-accent: hsl(72, 100%, 70%); /* Lime Green #E8FF6C */
+  --aura-accent-foreground: hsl(0, 0%, 0%);
+  --aura-destructive: hsl(0, 84.2%, 60.2%);
+  --aura-destructive-foreground: hsl(0, 0%, 100%);
+  --aura-border: hsla(0, 0%, 100%, 0.1);
+  --aura-input: hsl(0, 0%, 15%);
+  --aura-ring: hsl(72, 100%, 70%);
+  --aura-radius: 0.75rem;
+}
+
+/* ============================================
+   Typography - Fonts
+   ============================================ */
+.aura-font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+.aura-font-headline {
+  font-family: 'Syne', sans-serif;
+}
+
+/* ============================================
+   Keyframe Animations
+   ============================================ */
+
+/* Scroll Line Animation for Hero Indicator */
+@keyframes aura-scrollLine {
+  0% { 
+    transform: translateY(-100%); 
+  }
+  100% { 
+    transform: translateY(200%); 
+  }
+}
+
+/* Fade In Up Animation for Menu Items */
+@keyframes aura-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse Animation */
+@keyframes aura-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* ============================================
+   Hero Section Styles
+   ============================================ */
+#aura-hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--aura-background);
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#aura-hero-section.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Also hide navigation initially */
+#aura-navigation {
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+#aura-navigation.visible {
+  opacity: 1;
+}
+
+/* Background - Pure Black, No Effects */
+.aura-hero-bg-glow {
+  display: none; /* No glow effect */
+}
+
+.aura-hero-bg-glow-inner {
+  display: none; /* No glow effect */
+}
+
+/* Three.js Canvas Container */
+#aura-hero-canvas-container {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+
+/* Hero Content Container */
+.aura-hero-content {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .aura-hero-content {
+    padding: 0 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .aura-hero-content {
+    padding: 0 4rem;
+  }
+}
+
+/* Hero Text Layers */
+.aura-hero-text-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+/* Subtitle */
+.aura-hero-subtitle {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--aura-accent);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+  transition: transform 0.5s ease-out;
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .aura-hero-subtitle {
+    font-size: 11px;
+    letter-spacing: 1em;
+    margin-bottom: 4rem;
+  }
+}
+
+/* Main Title Container */
+.aura-hero-title-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 25vh; /* Ensure enough space */
+  margin: 2rem 0;
+}
+
+@media (min-width: 768px) {
+  .aura-hero-title-container {
+    min-height: 30vh;
+    margin: 3rem 0;
+  }
+}
+
+/* Title - YOUR STYLE (Background - Subtle) */
+.aura-hero-title-main {
+  font-family: 'Syne', sans-serif;
+  font-size: 15vw;
+  line-height: 0.85;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.12); /* Very subtle gray/transparent */
+  transition: transform 0.7s ease-out;
+  will-change: transform;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .aura-hero-title-main {
+    font-size: 12rem;
+    line-height: 0.8;
+  }
+}
+
+@media (min-width: 1024px) {
+  .aura-hero-title-main {
+    font-size: 14rem;
+  }
+}
+
+/* Title - TOWN TEAM (Foreground - Main Focus) */
+.aura-hero-title-overlay {
+  font-family: 'Syne', sans-serif;
+  font-size: 15vw;
+  line-height: 0.85;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  font-style: normal;
+  color: var(--aura-foreground);
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: transform 1s ease-out;
+  will-change: transform;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .aura-hero-title-overlay {
+    font-size: 12rem;
+    line-height: 0.8;
+  }
+}
+
+@media (min-width: 1024px) {
+  .aura-hero-title-overlay {
+    font-size: 14rem;
+  }
+}
+
+/* Hero Description */
+.aura-hero-description-wrapper {
+  margin-top: 5rem;
+  transition: transform 0.7s ease-out;
+  will-change: transform;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .aura-hero-description-wrapper {
+    margin-top: 7rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .aura-hero-description-wrapper {
+    margin-top: 9rem;
+  }
+}
+
+.aura-hero-description {
+  font-size: 0.95rem;
+  font-weight: 300;
+  opacity: 0.7;
+  line-height: 1.8;
+  padding: 0 1.5rem;
+  color: var(--aura-foreground);
+}
+
+@media (min-width: 768px) {
+  .aura-hero-description {
+    font-size: 1.125rem;
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .aura-hero-description {
+    font-size: 1.25rem;
+  }
+}
+
+.aura-hero-description-accent {
+  color: var(--aura-accent);
+  font-weight: 500;
+}
+
+/* Scroll Indicator */
+.aura-hero-scroll-indicator {
+  position: absolute;
+  bottom: 4rem;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  z-index: 30;
+}
+
+@media (min-width: 768px) {
+  .aura-hero-scroll-indicator {
+    bottom: 5rem;
+  }
+}
+
+.aura-hero-scroll-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.aura-hero-scroll-text {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  opacity: 0.5;
+  font-weight: 600;
+  color: var(--aura-foreground);
+}
+
+@media (min-width: 768px) {
+  .aura-hero-scroll-text {
+    font-size: 10px;
+    letter-spacing: 0.5em;
+  }
+}
+
+.aura-hero-scroll-line-container {
+  position: relative;
+  width: 1px;
+  height: 5rem;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .aura-hero-scroll-line-container {
+    height: 6rem;
+  }
+}
+
+.aura-hero-scroll-line-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--aura-accent);
+  opacity: 0.2;
+}
+
+.aura-hero-scroll-line-animated {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: var(--aura-accent);
+  animation: aura-scrollLine 2s infinite;
+}
+
+/* ============================================
+   Navigation Bar Styles
+   ============================================ */
+#aura-navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  transition: all 0.5s ease;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+}
+
+@media (min-width: 768px) {
+  #aura-navigation {
+    padding: 1.5rem 3rem;
+  }
+}
+
+/* Scrolled state */
+#aura-navigation.scrolled {
+  background: rgba(250, 247, 245, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--aura-border);
+  border-bottom-color: rgba(228, 228, 231, 0.5);
+}
+
+@media (prefers-color-scheme: dark) {
+  #aura-navigation.scrolled {
+    background: rgba(10, 10, 10, 0.8);
+  }
+}
+
+@media (min-width: 768px) {
+  #aura-navigation.scrolled {
+    padding: 1rem 3rem;
+  }
+}
+
+/* Menu open state - remove backdrop blur */
+#aura-navigation.menu-open {
+  border: none;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* Logo/Brand */
+.aura-nav-logo {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 110;
+  text-decoration: none;
+  color: var(--aura-foreground);
+  transition: color 0.5s ease;
+}
+
+#aura-navigation.menu-open .aura-nav-logo {
+  color: white;
+}
+
+.aura-nav-logo-icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--aura-accent);
+  animation: aura-pulse 2s ease-in-out infinite;
+  transition: background-color 0.5s ease;
+}
+
+#aura-navigation.menu-open .aura-nav-logo-icon {
+  background: white;
+}
+
+.aura-nav-logo-text {
+  color: inherit;
+  transition: color 0.5s ease;
+}
+
+.aura-nav-logo-dot {
+  color: var(--aura-accent);
+}
+
+/* Desktop Navigation Links */
+.aura-nav-links {
+  display: none;
+  gap: 3rem;
+  position: relative;
+  z-index: 110;
+}
+
+@media (min-width: 768px) {
+  .aura-nav-links {
+    display: flex;
+  }
+}
+
+.aura-nav-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: color 0.3s ease;
+  position: relative;
+  text-decoration: none;
+  color: var(--aura-foreground);
+  opacity: 0.6;
+}
+
+.aura-nav-link:hover {
+  color: var(--aura-accent);
+  opacity: 1;
+}
+
+#aura-navigation.menu-open .aura-nav-link {
+  color: white;
+  opacity: 0.6;
+}
+
+#aura-navigation.menu-open .aura-nav-link:hover {
+  color: white;
+  opacity: 1;
+}
+
+/* Hover underline effect */
+.aura-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -0.25rem;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--aura-accent);
+  transition: width 0.3s ease;
+}
+
+.aura-nav-link:hover::after {
+  width: 100%;
+}
+
+/* Menu Toggle Button */
+.aura-nav-menu-btn {
+  padding: 0.5rem;
+  position: relative;
+  z-index: 110;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--aura-foreground);
+}
+
+.aura-nav-menu-btn:hover {
+  background: rgba(139, 92, 246, 0.1);
+}
+
+#aura-navigation.menu-open .aura-nav-menu-btn {
+  color: white;
+}
+
+#aura-navigation.menu-open .aura-nav-menu-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.aura-nav-menu-btn svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2;
+}
+
+/* ============================================
+   Full-Screen Menu Overlay
+   ============================================ */
+#aura-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--aura-primary);
+  z-index: 90;
+  transition: transform 0.7s cubic-bezier(0.85, 0, 0.15, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-100%);
+}
+
+#aura-menu-overlay.open {
+  transform: translateY(0);
+}
+
+/* Background Decorative Elements - Replaced with Image Container */
+.aura-menu-bg-accent {
+  display: none; /* Removed - using images instead */
+}
+
+.aura-menu-bg-blur {
+  display: none; /* Removed - using images instead */
+}
+
+/* Background Image Container */
+.aura-menu-bg-image-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.aura-menu-bg-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1.05);
+}
+
+.aura-menu-bg-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  ); /* Gradient overlay from right to left */
+  z-index: 1;
+}
+
+.aura-menu-bg-image.active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 1024px) {
+  .aura-menu-bg-image-container {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .aura-menu-bg-image-container {
+    width: 100%;
+    opacity: 0.2; /* More subtle on mobile */
+  }
+  
+  .aura-menu-bg-image::before {
+    background: rgba(0, 0, 0, 0.8); /* Darker on mobile */
+  }
+}
+
+/* Menu Items Container */
+.aura-menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  position: relative;
+  z-index: 10; /* Above background images */
+}
+
+@media (min-width: 768px) {
+  .aura-menu-items {
+    gap: 2.5rem;
+  }
+}
+
+/* Menu Item Links - Adjusted Size */
+.aura-menu-item {
+  font-family: 'Syne', sans-serif;
+  font-size: 3rem; /* Reduced from 8rem */
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -0.02em; /* Less tight */
+  font-weight: 700; /* Slightly lighter */
+  transition: all 0.3s ease;
+  text-decoration: none;
+  opacity: 0;
+  animation: aura-fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (max-width: 428px) {
+  .aura-menu-items {
+    gap: 1.25rem;
+  }
+
+  .aura-menu-item {
+    font-size: clamp(1.85rem, 8vw, 2.25rem);
+  }
+}
+
+@media (min-width: 768px) {
+  .aura-menu-item {
+    font-size: 5rem; /* Reduced from 8rem */
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  .aura-menu-item:hover {
+    font-style: italic;
+  }
+}
+
+/* Staggered animation delays for menu items */
+.aura-menu-item:nth-child(1) { animation-delay: 0.2s; }
+.aura-menu-item:nth-child(2) { animation-delay: 0.3s; }
+.aura-menu-item:nth-child(3) { animation-delay: 0.4s; }
+.aura-menu-item:nth-child(4) { animation-delay: 0.5s; }
+
+/* Reset animation when menu closes */
+#aura-menu-overlay:not(.open) .aura-menu-item {
+  animation: none;
+  opacity: 0;
+}
+
+/* Menu Footer */
+.aura-menu-footer {
+  position: absolute;
+  bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.aura-menu-social {
+  display: flex;
+  gap: 2rem;
+  opacity: 0.4;
+}
+
+.aura-menu-social-link {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  text-decoration: none;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  .aura-menu-social-link:hover {
+    opacity: 1;
+  }
+}
+
+.aura-menu-copyright {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: white;
+  opacity: 0.2;
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.aura-smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+/* Prevent body scroll when menu is open */
+body.aura-menu-open {
+  overflow: hidden;
+}
+
+/* Antialiasing */
+.aura-antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Disable hero & menu hover effects on small screens & touch devices */
+@media (max-width: 1024px), (hover: none), (pointer: coarse) {
+  .aura-menu-item:hover {
+    font-style: normal !important;
+    transform: none !important;
+  }
+
+  .aura-menu-social-link:hover {
+    opacity: 0.4 !important;
+  }
+
+  .aura-nav-link:hover {
+    color: inherit !important;
+  }
+
+  .aura-nav-link::after,
+  .aura-nav-link:hover::after {
+    display: none !important;
+    width: 0 !important;
+  }
+
+  .aura-nav-menu-btn:hover {
+    background: transparent !important;
+  }
+
+  #aura-navigation.menu-open .aura-nav-menu-btn:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+}

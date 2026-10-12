@@ -1,16 +1,8 @@
 {
   "name": "town-team-fashion-showcase",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.0.0",
   "type": "module",
-  "description": "High-end interactive e-commerce fashion showcase for Town Team, engineered with high-performance 60 FPS canvas frame-scrubbing, GSAP ScrollTrigger, Lenis smooth scrolling, and editorial responsive design.",
-  "author": "Anas Mahfouz <https://github.com/aanasmahfouz>",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aanasmahfouz/town-team.git"
-  },
-  "homepage": "https://github.com/aanasmahfouz/town-team#readme",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -34,5 +26,9 @@
     "sheryjs": "^1.0.0-beta.0.1.8",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.174.0"
-  }
+  },
+  "description": "Immersive Town Team fashion showcase built with Three.js, GSAP, and Tailwind CSS.",
+  "keywords": [],
+  "author": "Anas Mahfouz",
+  "license": "ISC"
 }

@@ -1,143 +1,233 @@
 /**
- * Town Team Philosophy Section Styling - Modern Editorial Showcase
- * Editorial high-fashion presentation with razor-sharp geometry
+ * Philosophy & Editorial Sections Styling - High-Fashion Aura Style
+ * Optimized for Mobile Lookbook & Desktop Parallax Spread
  */
 
+/* Content Section Main Container */
+.content {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-background, #000000);
+}
+
+.content1,
+.content2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 3.5rem 1.25rem;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .content1,
+  .content2 {
+    padding: 4.5rem 2.5rem;
+    gap: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content1,
+  .content2 {
+    flex-direction: row;
+    padding: 4rem 2.5rem;
+    gap: 2.5rem;
+    align-items: flex-start;
+  }
+}
+
+/* ============================================================
+   Editorial Image Gallery (Mobile 2-Column Staggered Lookbook)
+   ============================================================ */
+.content-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .content-gallery {
+    max-width: 680px;
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-gallery {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    flex-shrink: 0;
+  }
+}
+
+/* Content Image Cards - Sharp Edge Luxury Aesthetic (No Radius, No Hover Effect) */
+.contentimg {
+  position: relative;
+  border-radius: 0 !important;
+  overflow: hidden;
+  background: transparent;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Aspect ratio & stable lookbook cards on Mobile / Tablet */
+@media (max-width: 1023px) {
+  .content {
+    overflow: visible !important;
+  }
+
+  .content-gallery {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.85rem !important;
+    width: 100% !important;
+    max-width: 520px !important;
+    margin: 0 auto !important;
+    padding: 0 0.5rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .contentimg {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 3 / 4 !important;
+    min-height: 180px !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    display: block !important;
+    margin: 0 !important;
+    transform: none !important; /* CRITICAL: Prevents Locomotive Scroll from shooting cards off-screen on mobile */
+  }
+
+  /* Disable Locomotive Scroll transform on mobile to keep cards firmly in viewport */
+  .content-gallery [data-scroll],
+  .contentimg[data-scroll] {
+    transform: none !important;
+  }
+
+  /* Stagger the lookbook cards safely with margin instead of transform */
+  .content1 .content-gallery .contentimg:last-child {
+    margin-top: 1.25rem !important;
+  }
+
+  .content2 .content-gallery .contentimg:first-child {
+    margin-top: 1.25rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contentimg {
+    border-radius: 0 !important;
+  }
+}
+
+.contentimg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0 !important;
+}
+
+/* ============================================================
+   Philosophy Text Section
+   ============================================================ */
 .philosophy-section {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem !important;
-  padding: 3rem 2rem;
+  gap: 1.5rem !important;
+  padding: 0;
 }
 
 @media (min-width: 1024px) {
   .philosophy-section {
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
     gap: 3rem !important;
   }
 }
 
-/* Overline label with dash - Enhanced */
+/* Overline label with accent dash */
 .philosophy-overline {
-  font-size: 0.65rem !important;
+  font-size: 0.7rem !important;
   text-transform: uppercase;
-  letter-spacing: 0.5em !important;
+  letter-spacing: 0.4em !important;
   font-weight: 700 !important;
   display: flex !important;
   align-items: center;
-  gap: 1.25rem;
-  color: var(--color-text-secondary) !important;
-  opacity: 0;
-  animation: fade-in-up 1s ease-out forwards;
+  gap: 1rem;
+  color: var(--color-accent, #E8FF6C) !important;
   margin: 0 !important;
   padding: 0 !important;
+  animation: fade-in-up 1s ease-out forwards;
 }
 
 .philosophy-overline::before {
   content: '';
-  width: 4rem;
-  height: 1.5px;
-  background: var(--color-text-secondary);
+  width: 2.5rem;
+  height: 2px;
+  background: var(--color-accent, #E8FF6C);
   flex-shrink: 0;
-  opacity: 0.4;
+  opacity: 0.85;
 }
 
-/* Main headline with emphasized word - Multi-line Layout */
+@media (min-width: 1024px) {
+  .philosophy-overline {
+    font-size: 0.65rem !important;
+    letter-spacing: 0.5em !important;
+    gap: 1.25rem;
+    color: var(--color-text-secondary) !important;
+  }
+
+  .philosophy-overline::before {
+    width: 4rem;
+    height: 1.5px;
+    background: var(--color-text-secondary);
+    opacity: 0.4;
+  }
+}
+
+/* Main headline */
 .philosophy-headline {
-  font-size: clamp(3rem, 10vw, 6rem) !important;
+  font-size: clamp(2.3rem, 8.5vw, 5.5rem) !important;
   font-weight: 800 !important;
-  line-height: 1.1 !important;
+  line-height: 1.08 !important;
   letter-spacing: -0.03em !important;
-  color: var(--color-text-primary) !important;
-  font-family: var(--font-display) !important;
+  color: var(--color-text-primary, #FFFFFF) !important;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif) !important;
   margin: 0 !important;
   padding: 0 !important;
   text-transform: uppercase;
+  transition: color 0.4s ease;
 }
 
 .philosophy-headline .emphasis {
   display: block;
   font-style: italic;
-  color: var(--color-accent) !important;
+  color: var(--color-accent, #E8FF6C) !important;
   font-weight: 800;
-  margin-top: -0.2em;
+  margin-top: -0.1em;
 }
 
 .philosophy-headline .emphasis-secondary {
   display: block;
   font-style: italic;
-  color: var(--color-accent-secondary) !important;
+  color: var(--color-accent-secondary, #6C8CFF) !important;
   font-weight: 800;
-  margin-top: -0.2em;
+  margin-top: -0.1em;
 }
 
-/* Secondary muted text block - Enhanced */
-.philosophy-secondary {
-  font-size: clamp(1.5rem, 4vw, 2.25rem) !important;
-  font-weight: 400 !important;
-  line-height: 1.4 !important;
-  letter-spacing: -0.015em !important;
-  color: var(--color-text-secondary) !important;
-  opacity: 0.4 !important;
-  font-family: var(--font-display) !important;
-  margin-top: 1.5rem !important;
-  margin-bottom: 0 !important;
-  max-width: 100%;
-  padding: 0 !important;
-  text-transform: uppercase;
-  font-weight: 500 !important;
-}
-
-/* Remove divider - not in Aura style */
-.philosophy-divider {
-  display: none;
-}
-
-/* Animation keyframes */
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .philosophy-section {
-    gap: 2rem !important;
-    padding: 2rem 1rem;
-  }
-  
-  .philosophy-overline {
-    font-size: 0.6rem;
-    letter-spacing: 0.4em;
-    gap: 1rem;
-  }
-  
-  .philosophy-overline::before {
-    width: 3rem;
-  }
-  
-  .philosophy-headline {
-    font-size: clamp(2.5rem, 12vw, 4rem) !important;
-  }
-  
-  .philosophy-secondary {
-    font-size: clamp(1.25rem, 5vw, 1.75rem) !important;
-  }
-}
-
-/* Hover states - subtle (Desktop only > 1024px with fine hover pointer) */
-@media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
-  .philosophy-headline {
-    transition: color 0.4s ease;
-  }
-
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
   .philosophy-headline:hover .emphasis,
   .philosophy-headline:hover .emphasis-secondary {
     opacity: 0.85;
@@ -145,201 +235,57 @@
   }
 }
 
-/* ==========================================================================
-   Editorial Content Showcase (.content, .content1, .content2, .contentimg)
-   High-Fashion Magazine Layout with ZERO border-radius
-   ========================================================================== */
-
-.content {
-  width: 100%;
-  position: relative;
-  background: var(--color-background);
-  box-sizing: border-box;
+/* Secondary muted text block */
+.philosophy-secondary {
+  font-size: clamp(0.95rem, 3.2vw, 1.35rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  letter-spacing: 0.01em !important;
+  color: var(--color-text-secondary, #A3A3A3) !important;
+  opacity: 0.8 !important;
+  font-family: var(--font-body, 'Inter', sans-serif) !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0 !important;
+  max-width: 620px;
+  padding: 0 !important;
+  text-transform: uppercase;
 }
 
-.content1,
-.content2 {
-  width: 100%;
-  box-sizing: border-box;
-  position: relative;
-}
-
-/* Images: Zero border-radius strictly applied per user specification */
-.contentimg {
-  border-radius: 0 !important;
-  overflow: hidden;
-  position: relative;
-  background: #000;
-  box-sizing: border-box;
-}
-
-.contentimg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 0 !important;
-  display: block;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
-}
-
-@media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
-  .contentimg:hover img {
-    transform: scale(1.04);
+@media (min-width: 1024px) {
+  .philosophy-secondary {
+    font-size: clamp(1.25rem, 2.5vw, 1.85rem) !important;
+    line-height: 1.5 !important;
+    opacity: 0.55 !important;
+    font-family: var(--font-display, 'Space Grotesk', sans-serif) !important;
+    margin-top: 1.5rem !important;
+    max-width: 100%;
   }
 }
 
-/* --------------------------------------------------------------------------
-   Desktop Layout (> 1024px) - 100% Faithful to Original Creative Layout
-   -------------------------------------------------------------------------- */
-@media (min-width: 1025px) {
-  .content1 {
-    display: flex;
-    align-items: flex-start;
-    gap: 2.5rem;
-    padding: 2.5rem 3rem 5rem;
-  }
-
-  .content1-images {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.25rem;
-    flex-shrink: 0;
-  }
-
-  .content1-images .contentimg:nth-child(1) {
-    width: 20rem;
-    height: 30rem;
-  }
-
-  .content1-images .contentimg:nth-child(2) {
-    width: 25rem;
-    height: 40rem;
-  }
-
-  .content1 .philosophy-section {
-    width: 60vw;
-    flex-grow: 1;
-    padding: 3rem 2rem;
-  }
-
-  .content2 {
-    display: flex;
-    align-items: flex-start;
-    gap: 2.5rem;
-    padding: 3rem 3rem 6rem;
-  }
-
-  .content2 .philosophy-section {
-    width: 60vw;
-    flex-grow: 1;
-    margin-top: 5rem;
-    padding: 3rem 2rem;
-  }
-
-  .content2-images {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.25rem;
-    flex-shrink: 0;
-    margin-top: 5rem;
-  }
-
-  .content2-images .contentimg:nth-child(1) {
-    width: 20rem;
-    height: 20rem;
-    margin-top: 5rem;
-  }
-
-  .content2-images .contentimg:nth-child(2) {
-    width: 20rem;
-    height: 30rem;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   Mobile & Tablet Layout (<= 1024px) - Asymmetric Staggered Editorial Duo
-   -------------------------------------------------------------------------- */
-@media (max-width: 1024px) {
-  .content1,
-  .content2 {
-    display: flex;
-    flex-direction: column;
-    padding: clamp(2.5rem, 5vh, 4rem) clamp(1rem, 3.5vw, 2.5rem);
-    gap: clamp(1.75rem, 3.5vh, 2.75rem);
-  }
-
-  /* Typography block sits cleanly at the top */
+/* Mobile Ordering: Text comes first, image gallery follows */
+@media (max-width: 1023px) {
   .content1 .philosophy-section,
   .content2 .philosophy-section {
-    width: 100% !important;
-    padding: 0 !important;
-    margin-top: 0 !important;
     order: 1;
+    width: 100% !important;
+    margin-top: 0 !important;
   }
 
-  /* Editorial Images container positioned immediately beneath the typography */
-  .content-images-wrapper {
-    width: 100%;
-    max-width: 620px;
-    margin: 0 auto;
-    display: flex;
-    align-items: flex-start;
-    gap: clamp(0.75rem, 2.5vw, 1.25rem);
+  .content1 .content-gallery,
+  .content2 .content-gallery {
     order: 2;
-    box-sizing: border-box;
-  }
-
-  /* Section 1: The Movement Staggered Pair */
-  .content1-images .contentimg:nth-child(1) {
-    flex: 1;
-    aspect-ratio: 3/4;
-    border-radius: 0 !important;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-  }
-
-  .content1-images .contentimg:nth-child(2) {
-    flex: 1.08;
-    aspect-ratio: 4/5;
-    margin-top: clamp(1.5rem, 4vh, 2.5rem);
-    border-radius: 0 !important;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-  }
-
-  /* Section 2: The Expression Inverted Staggered Pair */
-  .content2-images .contentimg:nth-child(1) {
-    flex: 1;
-    aspect-ratio: 1/1;
-    margin-top: clamp(1.25rem, 3vh, 2rem);
-    border-radius: 0 !important;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-  }
-
-  .content2-images .contentimg:nth-child(2) {
-    flex: 1.08;
-    aspect-ratio: 3/4;
-    border-radius: 0 !important;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1.5rem;
   }
 }
 
-/* --------------------------------------------------------------------------
-   Ultra-Compact Mobile (< 480px)
-   -------------------------------------------------------------------------- */
-@media (max-width: 480px) {
-  .content-images-wrapper {
-    gap: 0.65rem;
+/* Animation keyframes */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-
-  .content1-images .contentimg:nth-child(2) {
-    margin-top: 1.25rem;
-  }
-
-  .content2-images .contentimg:nth-child(1) {
-    margin-top: 1rem;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-
