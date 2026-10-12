@@ -6,19 +6,23 @@
    ============================================ */
 :root {
   /* Town Team Color System - Dark Theme */
-  --town-background: hsl(0, 0%, 0%); /* Black background */
-  --town-foreground: hsl(0, 0%, 100%); /* White text */
+  --town-background: hsl(0, 0%, 0%);
+  /* Black background */
+  --town-foreground: hsl(0, 0%, 100%);
+  /* White text */
   --town-card: hsl(0, 0%, 5%);
   --town-card-foreground: hsl(0, 0%, 100%);
   --town-popover: hsl(0, 0%, 5%);
   --town-popover-foreground: hsl(0, 0%, 100%);
-  --town-primary: hsl(0, 0%, 0%); /* Black for menu overlay */
+  --town-primary: hsl(0, 0%, 0%);
+  /* Black for menu overlay */
   --town-primary-foreground: hsl(0, 0%, 100%);
   --town-secondary: hsl(0, 0%, 10%);
   --town-secondary-foreground: hsl(0, 0%, 100%);
   --town-muted: hsl(0, 0%, 15%);
   --town-muted-foreground: hsl(0, 0%, 64%);
-  --town-accent: hsl(72, 100%, 70%); /* Lime Green #E8FF6C */
+  --town-accent: hsl(72, 100%, 70%);
+  /* Lime Green #E8FF6C */
   --town-accent-foreground: hsl(0, 0%, 0%);
   --town-destructive: hsl(0, 84.2%, 60.2%);
   --town-destructive-foreground: hsl(0, 0%, 100%);
@@ -45,11 +49,12 @@
 
 /* Scroll Line Animation for Hero Indicator */
 @keyframes town-scrollLine {
-  0% { 
-    transform: translateY(-100%); 
+  0% {
+    transform: translateY(-100%);
   }
-  100% { 
-    transform: translateY(200%); 
+
+  100% {
+    transform: translateY(200%);
   }
 }
 
@@ -59,6 +64,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -67,9 +73,12 @@
 
 /* Pulse Animation */
 @keyframes town-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.5;
   }
@@ -109,11 +118,13 @@
 
 /* Background - Pure Black, No Effects */
 .town-hero-bg-glow {
-  display: none; /* No glow effect */
+  display: none;
+  /* No glow effect */
 }
 
 .town-hero-bg-glow-inner {
-  display: none; /* No glow effect */
+  display: none;
+  /* No glow effect */
 }
 
 /* Three.js Canvas Container */
@@ -187,7 +198,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 25vh; /* Ensure enough space */
+  min-height: 25vh;
+  /* Ensure enough space */
   margin: 2rem 0;
 }
 
@@ -206,11 +218,18 @@
   text-transform: uppercase;
   letter-spacing: -0.03em;
   font-weight: 800;
-  color: rgba(255, 255, 255, 0.12); /* Very subtle gray/transparent */
+  color: rgba(255, 255, 255, 0.12);
+  /* Very subtle gray/transparent */
   transition: transform 0.7s ease-out;
   will-change: transform;
   margin: 0;
   padding: 0;
+}
+
+@media (max-width: 400px) {
+  #town-hero-section .town-hero-title-main {
+    margin-top: -1.75rem !important;
+  }
 }
 
 @media (min-width: 768px) {
@@ -587,11 +606,13 @@
 
 /* Background Decorative Elements - Replaced with Image Container */
 .town-menu-bg-accent {
-  display: none; /* Removed - using images instead */
+  display: none;
+  /* Removed - using images instead */
 }
 
 .town-menu-bg-blur {
-  display: none; /* Removed - using images instead */
+  display: none;
+  /* Removed - using images instead */
 }
 
 /* Background Image Container */
@@ -624,11 +645,10 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to left,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.7) 100%
-  ); /* Gradient overlay from right to left */
+  background: linear-gradient(to left,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.7) 100%);
+  /* Gradient overlay from right to left */
   z-index: 1;
 }
 
@@ -636,7 +656,7 @@
   opacity: 1;
   transform: scale(1);
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (max-width: 1024px) {
@@ -648,11 +668,13 @@
 @media (max-width: 768px) {
   .town-menu-bg-image-container {
     width: 100%;
-    opacity: 0.2; /* More subtle on mobile */
+    opacity: 0.2;
+    /* More subtle on mobile */
   }
-  
+
   .town-menu-bg-image::before {
-    background: rgba(0, 0, 0, 0.8); /* Darker on mobile */
+    background: rgba(0, 0, 0, 0.8);
+    /* Darker on mobile */
   }
 }
 
@@ -663,7 +685,8 @@
   gap: 1.5rem;
   align-items: center;
   position: relative;
-  z-index: 10; /* Above background images */
+  z-index: 10;
+  /* Above background images */
 }
 
 @media (min-width: 768px) {
@@ -675,11 +698,14 @@
 /* Menu Item Links - Adjusted Size */
 .town-menu-item {
   font-family: 'Syne', sans-serif;
-  font-size: 3rem; /* Reduced from 8rem */
+  font-size: 3rem;
+  /* Reduced from 8rem */
   color: white;
   text-transform: uppercase;
-  letter-spacing: -0.02em; /* Less tight */
-  font-weight: 700; /* Slightly lighter */
+  letter-spacing: -0.02em;
+  /* Less tight */
+  font-weight: 700;
+  /* Slightly lighter */
   transition: all 0.3s ease;
   text-decoration: none;
   opacity: 0;
@@ -698,7 +724,8 @@
 
 @media (min-width: 768px) {
   .town-menu-item {
-    font-size: 5rem; /* Reduced from 8rem */
+    font-size: 5rem;
+    /* Reduced from 8rem */
   }
 }
 
@@ -709,10 +736,21 @@
 }
 
 /* Staggered animation delays for menu items */
-.town-menu-item:nth-child(1) { animation-delay: 0.2s; }
-.town-menu-item:nth-child(2) { animation-delay: 0.3s; }
-.town-menu-item:nth-child(3) { animation-delay: 0.4s; }
-.town-menu-item:nth-child(4) { animation-delay: 0.5s; }
+.town-menu-item:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.town-menu-item:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.town-menu-item:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.town-menu-item:nth-child(4) {
+  animation-delay: 0.5s;
+}
 
 /* Reset animation when menu closes */
 #town-menu-overlay:not(.open) .town-menu-item {
@@ -779,7 +817,9 @@ body.town-menu-open {
 }
 
 /* Disable hero & menu hover effects on small screens & touch devices */
-@media (max-width: 1024px), (hover: none), (pointer: coarse) {
+@media (max-width: 1024px),
+(hover: none),
+(pointer: coarse) {
   .town-menu-item:hover {
     font-style: normal !important;
     transform: none !important;
